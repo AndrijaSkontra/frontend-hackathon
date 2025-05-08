@@ -2,5 +2,15 @@
   "HomePage": {
     "title": "Hello svijete!",
     "about": "Ajde rodjo"
+  },
+  "AuthForm": {
+    "login": "Prijavi se",
+    "register": "Registriraj se",
+    "email": "Email",
+    "password": "Lozinka",
+    "confirmPassword": "Potvrdi lozinku",
+    "loginButton": "Prijavi se",
+    "registerButton": "Registriraj se",
+    "invalidCredentials": "Pogrešna lozinka"
   }
 }

@@ -27,6 +27,7 @@ interface Cafeteria {
 }
 
 interface Menu {
+  id: string;
   cafeteriaId: string;
   name: string;
   menuType: "BREAKFAST" | "LUNCH" | "DINNER";
@@ -52,6 +53,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
   const t = useTranslations("CafeteriaPage");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [openDialogId, setOpenDialogId] = useState<string | null>(null);
 
   const filteredLocations = cafeterias.filter((location) =>
     location.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -162,13 +164,12 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                     .map((menu, idx) => (
                                       <div key={idx}>
                                         <Dialog
-                                          onOpenChange={(open) => {
-                                            if (open) {
-                                              console.log(
-                                                `Opening menu dialog for: ${menu.foodDetails}`
-                                              );
-                                            }
-                                          }}
+                                          open={openDialogId === menu.id}
+                                          onOpenChange={(open) =>
+                                            setOpenDialogId(
+                                              open ? menu.id : null
+                                            )
+                                          }
                                         >
                                           <DialogTrigger asChild>
                                             <Card className="p-4 hover:shadow-md transition-all border-amber-200 cursor-pointer">
@@ -227,6 +228,9 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                               <Button
                                                 variant="outline"
                                                 className="bg-amber-100 hover:bg-amber-200"
+                                                onClick={() =>
+                                                  setOpenDialogId(null)
+                                                }
                                               >
                                                 {t("close")}
                                               </Button>

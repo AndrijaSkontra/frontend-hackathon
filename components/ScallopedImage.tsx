@@ -1,6 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { useId } from "react"
 
 interface ScallopedImageProps {
   imageSrc: string
@@ -9,13 +10,16 @@ interface ScallopedImageProps {
 }
 
 export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedImageProps) {
+  // Generate a stable ID for the clip-path
+  const clipPathId = useId();
+  
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
       {/* Scalloped container with outline */}
       <div 
         className="w-screen max-w overflow-hidden bg-gradient-to-br from-white to-gray-100 shadow-xl"
         style={{
-          clipPath: "url(#scalloped-clip-path)",
+          clipPath: `url(#${clipPathId})`,
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           width: '100vw',
@@ -36,7 +40,7 @@ export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedI
         {/* SVG definitions for clip path */}
         <svg width="0" height="0" className="absolute">
           <defs>
-            <clipPath id="scalloped-clip-path">
+            <clipPath id={clipPathId}>
               <path d="M0,10 
                 C50,30 100,10 150,40 
                 C200,70 250,30 300,20 

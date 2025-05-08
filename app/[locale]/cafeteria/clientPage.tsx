@@ -162,7 +162,15 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                     )
                                     .map((menu, idx) => (
                                       <div key={idx}>
-                                        <Dialog>
+                                        <Dialog
+                                          onOpenChange={(open) => {
+                                            if (open) {
+                                              console.log(
+                                                `Opening menu dialog for: ${menu.foodIds}`
+                                              );
+                                            }
+                                          }}
+                                        >
                                           <DialogTrigger asChild>
                                             <Card className="p-4 hover:shadow-md transition-all border-amber-200 cursor-pointer">
                                               <div className="flex justify-between mb-2">

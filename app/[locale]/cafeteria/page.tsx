@@ -23,7 +23,7 @@ export default async function page() {
       headers: {
         Authorization: `Bearer ${session.user.accessToken}`,
       },
-    },
+    }
   );
 
   if (!cafeteriaRes.ok) {
@@ -43,11 +43,11 @@ export default async function page() {
         headers: {
           Authorization: `Bearer ${session.user.accessToken}`,
         },
-      },
+      }
     );
     if (!cafeteriaMenuRes.ok) {
       throw new Error(
-        `Failed to fetch cafeteria menu: ${cafeteriaMenuRes.status}`,
+        `Failed to fetch cafeteria menu: ${cafeteriaMenuRes.status}`
       );
     }
     const cafeteriaMenu = await cafeteriaMenuRes.json();
@@ -56,11 +56,6 @@ export default async function page() {
       menus: cafeteriaMenu,
     });
   }
-
-  console.log(
-    "cafeteriasWithMenus",
-    JSON.stringify(cafeteriasWithMenus, null, 2),
-  );
 
   return (
     <div>

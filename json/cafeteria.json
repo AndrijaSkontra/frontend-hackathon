@@ -1,0 +1,50 @@
+[
+    {
+      "id": "b7f42c83-4d5e-49d3-a6a5-2f7091d34371",
+      "name": "Green Leaf Café",
+      "workingTime": [
+        "08:00-11:00",
+        "14:00-16:00",
+        "20:00-23:00"
+      ],
+      "address": "724 Pine Street, Portland, OR 97204"
+    },
+    {
+      "id": "3e9c12a7-98b6-4f79-ac8d-5b4327d8e0f1",
+      "name": "Sunset Bookstore",
+      "workingTime": [
+        "10:00-12:00",
+        "17:00-21:00"
+      ],
+      "address": "1582 Ocean Drive, Miami Beach, FL 33139"
+    },
+    {
+      "id": "6d18b5f0-2e57-4b8c-9624-0c389f8c4a5d",
+      "name": "Precision Auto Repair",
+      "workingTime": [
+        "07:30-17:00",
+        "08:00-14:00"
+      ],
+      "address": "3847 Industrial Way, Detroit, MI 48201"
+    },
+    {
+      "id": "9f52e713-b16d-4c63-a8f7-d3ba42b4e59c",
+      "name": "Wellness Fitness Center",
+      "workingTime": [
+        "06:00-9:00",
+        "12:00-17:00",
+        "20:00-22:00"
+      ],
+      "address": "215 Health Avenue, Austin, TX 78701"
+    },
+    {
+      "id": "5a1c8e46-7d9b-42f3-b6e0-8c4f1d3a2e5b",
+      "name": "Moonlight Restaurant",
+      "workingTime": [
+        "8:00-10:00",
+        "12:00-14:30:00",
+        "17:00-20:00"
+      ],
+      "address": "492 Culinary Lane, Chicago, IL 60607"
+    }
+  ]

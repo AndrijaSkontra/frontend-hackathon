@@ -5,7 +5,7 @@
   "name": "Creamy Milkshake"
 }, {
   "id": "40a341e5-719c-48e8-8324-f718c73d5b94",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Main",
   "name": "Pesto Pasta with Pine Nuts"
 }, {
@@ -20,22 +20,22 @@
   "name": "Cream of Mushroom Soup"
 }, {
   "id": "48a8a8c6-5d20-43ef-b1a4-536b56964dcd",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Desert",
   "name": "Almond Croissant"
 }, {
   "id": "4d4058b2-5ece-4bfd-95a0-d6317767baff",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Salad",
   "name": "Waldorf Salad with Walnuts"
 }, {
   "id": "d17aa222-4081-4805-a00a-db0ef6936a33",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Desert",
   "name": "Pecan Pie"
 }, {
   "id": "95c1ee5d-e109-4540-a2c1-aed8b19c5901",
-  "allergies": "Crustacean Shellfish",
+  "allergies": "Shellfish",
   "type": "Main",
   "name": "Shrimp Scampi"
 }, {
@@ -55,7 +55,7 @@
   "name": "Spaghetti Bolognese"
 }, {
   "id": "970646bc-4e3a-4885-9631-a1c412c2bc6d",
-  "allergies": "Crustacean Shellfish",
+  "allergies": "Shellfish",
   "type": "Main",
   "name": "Lobster Bisque Pasta"
 }, {
@@ -95,7 +95,7 @@
   "name": "Shakshuka"
 }, {
   "id": "f52ba6bf-8720-49d1-8197-304a750a6d10",
-  "allergies": "Crustacean Shellfish",
+  "allergies": "Shellfish",
   "type": "Main",
   "name": "Crab Cakes"
 }, {
@@ -110,7 +110,7 @@
   "name": "Beef Wellington (pastry)"
 }, {
   "id": "e0c80c21-70d0-44e0-96de-f213200371f0",
-  "allergies": "Crustacean Shellfish",
+  "allergies": "Shellfish",
   "type": "Salad",
   "name": "Prawn Cocktail Salad"
 }, {
@@ -145,7 +145,7 @@
   "name": "Asian Slaw with Sesame Dressing"
 }, {
   "id": "f53988a8-8c08-405e-b5f8-c0017f108784",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Salad",
   "name": "Spinach Salad with Candied Pecans"
 }, {
@@ -200,7 +200,7 @@
   "name": "Chicken Satay with Peanut Sauce"
 }, {
   "id": "4f1a0f9e-74fc-4122-bff8-3c4e7143b294",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Main",
   "name": "Chicken with Walnut Sauce"
 }, {
@@ -230,7 +230,7 @@
   "name": "Couscous Salad"
 }, {
   "id": "f5fe5c69-cc11-4036-9acc-9d4717a47e09",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Desert",
   "name": "Macarons (Almond Flour)"
 }, {
@@ -240,7 +240,7 @@
   "name": "Chicken Noodle Soup"
 }, {
   "id": "ddf0333d-afaa-4f17-9cc8-452d96920436",
-  "allergies": "Tree Nuts",
+  "allergies": "Nuts",
   "type": "Desert",
   "name": "Hazelnut Gelato"
 }, {

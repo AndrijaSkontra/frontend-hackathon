@@ -1,0 +1,16 @@
+POST  http://localhost:8080/api/posts
+body
+{
+    "title": "GLupi post",
+    "description": "najgluplji post",
+    "contact": "sronc@something.gmail",
+    "type": "JOB",
+    "userId": "681c898879fd324fe7fadca1"
+}
+
+
+GET http://localhost:8080/api/posts
+
+GET http://localhost:8080/api/posts?type=JOB
+
+POST http://localhost:8080/api/posts/delete/681ca9e1555e6c26f9e611ef

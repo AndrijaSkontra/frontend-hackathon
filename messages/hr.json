@@ -16,6 +16,7 @@
     "loginButton": "Prijavi se",
     "registerButton": "Kreiraj račun",
     "invalidCredentials": "Pogrešna lozinka",
-    "passwordsDoNotMatch": "Lozinke se ne podudaraju"
+    "passwordsDoNotMatch": "Lozinke se ne podudaraju",
+    "registrationFailed": "Registracija nije uspjela. Račun već postoji."
   }
 }

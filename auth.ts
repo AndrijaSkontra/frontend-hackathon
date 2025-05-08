@@ -1,6 +1,11 @@
 import NextAuth, { User } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
+// Extend the User type to include our custom fields
+interface ExtendedUser extends User {
+  accessToken: string;
+}
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
@@ -22,7 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               email: credentials.email,
               password: credentials.password,
             }),
-          },
+          }
         );
 
         if (res.status !== 200) {
@@ -38,7 +43,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               "Content-Type": "application/json",
               Authorization: `Bearer ${resp.accessToken}`,
             },
-          },
+          }
         );
 
         if (userData.status !== 200) {
@@ -50,7 +55,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return {
           accessToken: resp.accessToken,
           ...userDataResp,
-        } as User;
+        };
       },
     }),
   ],
@@ -61,6 +66,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async redirect({ url, baseUrl }) {
       return baseUrl;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        // When signing in, merge the user data (including access token) into the token
+        return {
+          ...token,
+          accessToken: (user as ExtendedUser).accessToken,
+          ...user,
+        };
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      // Add the access token to the session
+      return {
+        ...session,
+        accessToken: token.accessToken,
+        user: {
+          ...session.user,
+          ...token,
+        },
+      };
     },
   },
 });

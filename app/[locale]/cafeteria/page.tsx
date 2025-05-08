@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 
 import { Header } from "@/components/Header";
@@ -312,3 +313,12 @@ export default function CafeteriaPage() {
     </div>
   );
 } 
+=======
+import { auth } from "@/auth";
+
+export default async function CafeteriaPage() {
+  const session = await auth();
+  console.log(session, "cafe");
+  return <div>suck this homie</div>;
+}
+>>>>>>> 431921eb28b6d634ea3e2d3f580ceda757a655f7

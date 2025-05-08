@@ -21,6 +21,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { fetcher } from "@/app/utils";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { warningToast } from "./warning-toast";
 
 type Props = {
   invalidLogin?: boolean | undefined;
@@ -55,8 +57,29 @@ export default function AuthForm({ invalidLogin }: Props) {
     });
   };
 
+  const router = useRouter();
+
   const handleRegisterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: registerData.email,
+        password: registerData.password,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        router.push("/login");
+      } else {
+        warningToast({
+          title: t("registrationFailed"),
+        });
+      }
+    });
 
     if (registerData.password !== registerData.confirmPassword) {
       setRegisterError(t("passwordsDoNotMatch"));

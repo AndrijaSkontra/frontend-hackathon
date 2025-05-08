@@ -73,7 +73,7 @@ export default function AuthForm({ invalidLogin }: Props) {
       }),
     }).then((res) => {
       if (res.ok) {
-        router.push("/");
+        router.push("/login");
       } else {
         warningToast({
           title: t("registrationFailed"),

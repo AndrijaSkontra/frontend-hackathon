@@ -16,6 +16,7 @@
     "loginButton": "Sign In",
     "registerButton": "Create Account",
     "invalidCredentials": "Invalid credentials",
-    "passwordsDoNotMatch": "Passwords do not match"
+    "passwordsDoNotMatch": "Passwords do not match",
+    "registrationFailed": "Registration failed. Account already exists."
   }
 }

@@ -11,7 +11,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        const user = await fetch(
+        const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/login`,
           {
             method: "POST",
@@ -25,23 +25,31 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
         );
 
-        if (user.status !== 200) {
+        if (res.status !== 200) {
           throw new Error("Invalid credentials");
         }
 
-        const userData = await user.json();
+        const resp = await res.json();
 
-        if (!user) {
-          throw new Error("Invalid credentials");
+        const userData = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/fetchMe`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${resp.accessToken}`,
+            },
+          }
+        );
+
+        if (userData.status !== 200) {
+          throw new Error("Failed to fetch user data");
         }
 
-        // return user object with their profile data
+        const userDataResp = await userData.json();
+
         return {
-          firstName: "Ante",
-          lastName: "Horvat",
-          semester: 5,
-          study: "Information Technology",
-          mail: "ahorvat@unizd.hr",
+          accessToken: resp.accessToken,
+          ...userDataResp,
         } as User;
       },
     }),

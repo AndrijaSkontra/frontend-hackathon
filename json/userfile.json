@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "firstName": "Amalle",
+    "lastName": "Escritt",
+    "type": "Cafeteria",
+    "mail": "aescritt0@behance.net"
+  },
+  {
+    "id": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "firstName": "Briano",
+    "lastName": "Saphir",
+    "type": "Cafeteria",
+    "mail": "bsaphir1@yahoo.com"
+  },
+  {
+    "id": "7fabb447-a9c0-4135-a758-164040406019",
+    "firstName": "Coop",
+    "lastName": "Bompass",
+    "type": "Cafeteria",
+    "mail": "cbompass2@dmoz.org"
+  },
+  {
+    "id": "6f72383d-7643-4171-88e1-136688009416",
+    "firstName": "Modestine",
+    "lastName": "Choffin",
+    "type": "Cafeteria",
+    "mail": "mchoffin3@ucoz.com"
+  },
+  {
+    "id": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+    "firstName": "Mariska",
+    "lastName": "Pellew",
+    "type": "Cafeteria",
+    "mail": "mpellew4@chronoengine.com"
+  },
+  {
+    "id": "527d85bb-2669-4608-bf1e-028beed08f56",
+    "firstName": "Georas",
+    "lastName": "Blackburne",
+    "type": "Student",
+    "mail": "gblackburne5@devhub.com"
+  },
+  {
+    "id": "75943419-6a2f-4401-a7e0-612f691ad9de",
+    "firstName": "Heindrick",
+    "lastName": "Fresson",
+    "type": "Cafeteria",
+    "mail": "hfresson6@tumblr.com"
+  },
+  {
+    "id": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+    "firstName": "Isabella",
+    "lastName": "Danniell",
+    "type": "Cafeteria",
+    "mail": "idanniell7@admin.ch"
+  },
+  {
+    "id": "7e608437-00ba-4a22-88c5-e84229548b27",
+    "firstName": "Tanhya",
+    "lastName": "Ruggles",
+    "type": "Student",
+    "mail": "truggles8@ox.ac.uk"
+  },
+  {
+    "id": "f6ab08af-368d-4528-8e0a-35325445141a",
+    "firstName": "Olly",
+    "lastName": "Jayes",
+    "type": "Student",
+    "mail": "ojayes9@homestead.com"
+  }
+]

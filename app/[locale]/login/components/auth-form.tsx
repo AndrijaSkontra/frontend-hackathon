@@ -8,6 +8,7 @@ import { Eye, EyeOff, UserRound, Lock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import useSWR from "swr";
 import {
   Card,
   CardContent,
@@ -18,6 +19,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { fetcher } from "@/app/utils";
 
 export default function AuthForm() {
   const t = useTranslations("HomePage"); // todo translations
@@ -25,6 +27,9 @@ export default function AuthForm() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [activeTab, setActiveTab] = useState("login");
 
+  const { data, error, isLoading } = useSWR(`/api/test`, fetcher);
+
+  // todo example of client fetch data
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",

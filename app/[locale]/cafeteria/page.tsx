@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 
 import { Header } from "@/components/Header";
@@ -248,58 +247,38 @@ export default function CafeteriaPage() {
                 <h1 className="text-3xl font-bold mb-4 md:mb-0">Campus Dining Options</h1>
                 <div className="w-full md:w-1/3">
                   <Input 
-                    type="search" 
-                    placeholder="Search cafeterias..." 
-                    className="rounded-full" 
+                    type="text"
+                    placeholder="Search cafeterias..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full"
                   />
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredLocations.map(location => (
-                  <Card key={location.id} className="overflow-hidden hover:shadow-xl transition-all">
-                    <div className="h-48 bg-gray-100 relative">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-6xl">🍽️</div>
-                      </div>
-                      <div className="absolute top-4 right-4 bg-white/90 text-black font-bold text-sm px-2 py-1 rounded-lg flex items-center">
-                        <span className="text-amber-500 mr-1">⭐</span>
-                        <span>{location.rating}</span>
-                      </div>
-                      <div className="absolute bottom-4 left-4 bg-black/80 text-white text-xs px-2 py-1 rounded-lg">
-                        {location.hours}
-                      </div>
+                  <Card 
+                    key={location.id}
+                    className="overflow-hidden hover:shadow-lg transition-all cursor-pointer"
+                    onClick={() => setSelectedLocation(location.id)}
+                  >
+                    <div className="h-48 bg-gray-100 flex items-center justify-center">
+                      <div className="text-5xl">🍽️</div>
                     </div>
-                    
                     <div className="p-5">
-                      <h3 className="font-bold text-xl mb-2">{location.name}</h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">{location.description}</p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {location.cuisineTypes.slice(0, 3).map(cuisine => (
-                          <span key={cuisine} className="bg-gray-100 text-xs px-2 py-1 rounded-full">
-                            {cuisine}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex justify-between items-center">
-                        <div className="flex items-center text-sm">
-                          {location.mealPlan && (
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                              Meal Plan Accepted
-                            </span>
-                          )}
+                      <div className="flex justify-between items-start mb-2">
+                        <h2 className="text-xl font-bold">{location.name}</h2>
+                        <div className="flex items-center bg-gray-100 px-2 py-1 rounded-full text-sm">
+                          <span className="text-amber-500 mr-1">⭐</span>
+                          <span>{location.rating}</span>
                         </div>
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          className="rounded-full hover:bg-black hover:text-white"
-                          onClick={() => setSelectedLocation(location.id)}
-                        >
-                          View Details
+                      </div>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">{location.description}</p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-500 text-sm">{location.hours}</span>
+                        <Button variant="outline" size="sm">
+                          View Menu
                         </Button>
                       </div>
                     </div>
@@ -312,13 +291,4 @@ export default function CafeteriaPage() {
       </main>
     </div>
   );
-} 
-=======
-import { auth } from "@/auth";
-
-export default async function CafeteriaPage() {
-  const session = await auth();
-  console.log(session, "cafe");
-  return <div>suck this homie</div>;
 }
->>>>>>> 431921eb28b6d634ea3e2d3f580ceda757a655f7

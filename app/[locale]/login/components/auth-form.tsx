@@ -27,14 +27,13 @@ type Props = {
 };
 
 export default function AuthForm({ invalidLogin }: Props) {
-  const t = useTranslations("AuthForm"); // todo translations
+  const t = useTranslations("AuthForm");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [activeTab, setActiveTab] = useState("login");
 
   const { data, error, isLoading } = useSWR(`/api/test`, fetcher);
 
-  // todo example of client fetch data
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -60,12 +59,11 @@ export default function AuthForm({ invalidLogin }: Props) {
     e.preventDefault();
 
     if (registerData.password !== registerData.confirmPassword) {
-      setRegisterError("Passwords do not match");
+      setRegisterError(t("passwordsDoNotMatch"));
       return;
     }
 
     setRegisterError("");
-    // Here you would implement your registration logic
     console.log("Register submitted:", registerData);
   };
 
@@ -74,10 +72,10 @@ export default function AuthForm({ invalidLogin }: Props) {
       <Card className="w-full border-amber-200 shadow-lg shadow-amber-100/20">
         <CardHeader className="space-y-1 bg-gradient-to-r from-amber-50 to-amber-100/50 rounded-t-lg -mt-6 pt-2">
           <CardTitle className="text-2xl font-bold text-center text-amber-800">
-            Welcome
+            {t("welcome")}
           </CardTitle>
           <CardDescription className="text-center text-amber-700">
-            Sign in or create an account to continue
+            {t("signInOrCreate")}
           </CardDescription>
         </CardHeader>
         <Tabs
@@ -94,10 +92,10 @@ export default function AuthForm({ invalidLogin }: Props) {
                   "relative transition-all duration-300 data-[state=active]:text-amber-800 data-[state=active]:shadow-none",
                   "data-[state=active]:bg-white data-[state=active]:font-medium",
                   "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-amber-400",
-                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300",
+                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300"
                 )}
               >
-                Login
+                {t("login")}
               </TabsTrigger>
               <TabsTrigger
                 value="register"
@@ -105,10 +103,10 @@ export default function AuthForm({ invalidLogin }: Props) {
                   "relative transition-all duration-300 data-[state=active]:text-amber-800 data-[state=active]:shadow-none",
                   "data-[state=active]:bg-white data-[state=active]:font-medium",
                   "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-amber-400",
-                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300",
+                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300"
                 )}
               >
-                Register
+                {t("register")}
               </TabsTrigger>
             </TabsList>
           </div>
@@ -127,14 +125,14 @@ export default function AuthForm({ invalidLogin }: Props) {
               <CardContent className="space-y-4 pt-4">
                 <div className="space-y-2">
                   <Label htmlFor="login-email" className="text-amber-700">
-                    Email
+                    {t("email")}
                   </Label>
                   <div className="relative group">
                     <UserRound className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-400 transition-colors duration-200" />
                     <Input
                       id="login-email"
                       type="email"
-                      placeholder="name@example.com"
+                      placeholder={t("emailPlaceholder")}
                       className="pl-10 border-amber-200 focus:border-amber-400 focus:ring-amber-400 transition-all duration-200"
                       value={loginData.email}
                       onChange={(e) =>
@@ -147,13 +145,13 @@ export default function AuthForm({ invalidLogin }: Props) {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label htmlFor="login-password" className="text-amber-700">
-                      Password
+                      {t("password")}
                     </Label>
                     <a
                       href="#"
                       className="text-xs text-amber-600 hover:text-amber-800 transition-colors duration-200"
                     >
-                      Forgot password?
+                      {t("forgotPassword")}
                     </a>
                   </div>
                   <div className="relative group">
@@ -189,7 +187,7 @@ export default function AuthForm({ invalidLogin }: Props) {
                     className="w-full bg-amber-500 hover:bg-amber-600 text-white group relative overflow-hidden transition-all duration-300"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2 group-hover:gap-4 transition-all duration-300">
-                      Sign In
+                      {t("loginButton")}
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                     <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
@@ -218,14 +216,14 @@ export default function AuthForm({ invalidLogin }: Props) {
               <CardContent className="space-y-4 pt-4">
                 <div className="space-y-2">
                   <Label htmlFor="register-email" className="text-amber-700">
-                    Email
+                    {t("email")}
                   </Label>
                   <div className="relative group">
                     <UserRound className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-400 transition-colors duration-200" />
                     <Input
                       id="register-email"
                       type="email"
-                      placeholder="name@example.com"
+                      placeholder={t("emailPlaceholder")}
                       className="pl-10 border-amber-200 focus:border-amber-400 focus:ring-amber-400 transition-all duration-200"
                       value={registerData.email}
                       onChange={(e) =>
@@ -240,7 +238,7 @@ export default function AuthForm({ invalidLogin }: Props) {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="register-password" className="text-amber-700">
-                    Password
+                    {t("password")}
                   </Label>
                   <div className="relative group">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-400 transition-colors duration-200" />
@@ -272,7 +270,7 @@ export default function AuthForm({ invalidLogin }: Props) {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="confirm-password" className="text-amber-700">
-                    Confirm Password
+                    {t("confirmPassword")}
                   </Label>
                   <div className="relative group">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-400 transition-colors duration-200" />
@@ -316,7 +314,7 @@ export default function AuthForm({ invalidLogin }: Props) {
                   className="w-full bg-amber-500 hover:bg-amber-600 text-white group relative overflow-hidden transition-all duration-300"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2 group-hover:gap-4 transition-all duration-300">
-                    Create Account
+                    {t("registerButton")}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>

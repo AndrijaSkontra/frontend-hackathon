@@ -4,13 +4,18 @@
     "about": "Go to the about page"
   },
   "AuthForm": {
+    "welcome": "Welcome",
+    "signInOrCreate": "Sign in or create an account to continue",
     "login": "Login",
     "register": "Register",
     "email": "Email",
+    "emailPlaceholder": "name@example.com",
     "password": "Password",
     "confirmPassword": "Confirm Password",
-    "loginButton": "Login",
-    "registerButton": "Register",
-    "invalidCredentials": "Invalid credentials"
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Sign In",
+    "registerButton": "Create Account",
+    "invalidCredentials": "Invalid credentials",
+    "passwordsDoNotMatch": "Passwords do not match"
   }
 }

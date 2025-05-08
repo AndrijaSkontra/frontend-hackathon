@@ -4,13 +4,18 @@
     "about": "Ajde rodjo"
   },
   "AuthForm": {
+    "welcome": "Dobrodošli",
+    "signInOrCreate": "Prijavite se ili kreirajte račun za nastavak",
     "login": "Prijavi se",
     "register": "Registriraj se",
     "email": "Email",
+    "emailPlaceholder": "ime@primjer.com",
     "password": "Lozinka",
     "confirmPassword": "Potvrdi lozinku",
+    "forgotPassword": "Zaboravili ste lozinku?",
     "loginButton": "Prijavi se",
-    "registerButton": "Registriraj se",
-    "invalidCredentials": "Pogrešna lozinka"
+    "registerButton": "Kreiraj račun",
+    "invalidCredentials": "Pogrešna lozinka",
+    "passwordsDoNotMatch": "Lozinke se ne podudaraju"
   }
 }

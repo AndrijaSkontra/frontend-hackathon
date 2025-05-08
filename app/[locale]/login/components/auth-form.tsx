@@ -20,9 +20,14 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { fetcher } from "@/app/utils";
+import { signIn } from "next-auth/react";
 
-export default function AuthForm() {
-  const t = useTranslations("HomePage"); // todo translations
+type Props = {
+  invalidLogin?: boolean | undefined;
+};
+
+export default function AuthForm({ invalidLogin }: Props) {
+  const t = useTranslations("AuthForm"); // todo translations
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [activeTab, setActiveTab] = useState("login");
@@ -45,8 +50,10 @@ export default function AuthForm() {
 
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would implement your login logic
-    console.log("Login submitted:", loginData);
+    signIn("credentials", {
+      email: loginData.email,
+      password: loginData.password,
+    });
   };
 
   const handleRegisterSubmit = (e: React.FormEvent) => {
@@ -65,7 +72,7 @@ export default function AuthForm() {
   return (
     <div className="flex justify-center items-center min-h-[500px] w-full max-w-md mx-auto">
       <Card className="w-full border-amber-200 shadow-lg shadow-amber-100/20">
-        <CardHeader className="space-y-1 bg-gradient-to-r from-amber-50 to-amber-100/50 rounded-t-lg">
+        <CardHeader className="space-y-1 bg-gradient-to-r from-amber-50 to-amber-100/50 rounded-t-lg -mt-6 pt-2">
           <CardTitle className="text-2xl font-bold text-center text-amber-800">
             Welcome
           </CardTitle>
@@ -87,7 +94,7 @@ export default function AuthForm() {
                   "relative transition-all duration-300 data-[state=active]:text-amber-800 data-[state=active]:shadow-none",
                   "data-[state=active]:bg-white data-[state=active]:font-medium",
                   "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-amber-400",
-                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300",
+                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300"
                 )}
               >
                 Login
@@ -98,7 +105,7 @@ export default function AuthForm() {
                   "relative transition-all duration-300 data-[state=active]:text-amber-800 data-[state=active]:shadow-none",
                   "data-[state=active]:bg-white data-[state=active]:font-medium",
                   "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-amber-400",
-                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300",
+                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300"
                 )}
               >
                 Register
@@ -176,16 +183,23 @@ export default function AuthForm() {
                 </div>
               </CardContent>
               <CardFooter className="mt-4">
-                <Button
-                  type="submit"
-                  className="w-full bg-amber-500 hover:bg-amber-600 text-white group relative overflow-hidden transition-all duration-300"
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-2 group-hover:gap-4 transition-all duration-300">
-                    Sign In
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                </Button>
+                <div className="flex flex-col gap-2 justify-center items-center grow">
+                  <Button
+                    type="submit"
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-white group relative overflow-hidden transition-all duration-300"
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2 group-hover:gap-4 transition-all duration-300">
+                      Sign In
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                  </Button>
+                  {invalidLogin && (
+                    <div className="text-sm text-red-500 bg-red-50 p-2 rounded-md w-full text-center">
+                      {t("invalidCredentials")}
+                    </div>
+                  )}
+                </div>
               </CardFooter>
             </form>
           </TabsContent>

@@ -1,29 +1,33 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import { useId } from "react"
+import { cn } from "@/lib/utils";
+import { useId } from "react";
 
 interface ScallopedImageProps {
-  imageSrc: string
-  className?: string
-  height?: number
+  imageSrc: string;
+  className?: string;
+  height?: number;
 }
 
-export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedImageProps) {
+export function ScallopedImage({
+  imageSrc,
+  className,
+  height = 300,
+}: ScallopedImageProps) {
   // Generate a stable ID for the clip-path
   const clipPathId = useId();
-  
+
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
       {/* Scalloped container with outline */}
-      <div 
+      <div
         className="w-screen max-w overflow-hidden bg-gradient-to-br from-white to-gray-100 shadow-xl"
         style={{
           clipPath: `url(#${clipPathId})`,
-          marginLeft: 'calc(-50vw + 50%)',
-          marginRight: 'calc(-50vw + 50%)',
-          width: '100vw',
-          marginBottom: "-80px" // More overlap at the bottom
+          marginLeft: "calc(-50vw + 50%)",
+          marginRight: "calc(-50vw + 50%)",
+          width: "100vw",
+          marginBottom: "-80px", // More overlap at the bottom
         }}
       >
         <img
@@ -33,7 +37,7 @@ export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedI
           style={{
             height: `${height}px`,
             objectPosition: "center 25%",
-            width: '100%'
+            width: "100%",
           }}
         />
 
@@ -41,7 +45,8 @@ export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedI
         <svg width="0" height="0" className="absolute">
           <defs>
             <clipPath id={clipPathId}>
-              <path d="M0,10 
+              <path
+                d="M0,10 
                 C50,30 100,10 150,40 
                 C200,70 250,30 300,20 
                 C350,10 400,60 450,40 
@@ -61,11 +66,12 @@ export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedI
                 C250,530 200,490 150,510 
                 C100,530 50,500 0,480 
                 
-                L0,10 Z" />
+                L0,10 Z"
+              />
             </clipPath>
           </defs>
         </svg>
       </div>
     </div>
-  )
+  );
 }

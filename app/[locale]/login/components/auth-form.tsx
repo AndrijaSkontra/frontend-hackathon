@@ -94,7 +94,7 @@ export default function AuthForm({ invalidLogin }: Props) {
                   "relative transition-all duration-300 data-[state=active]:text-amber-800 data-[state=active]:shadow-none",
                   "data-[state=active]:bg-white data-[state=active]:font-medium",
                   "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-amber-400",
-                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300"
+                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300",
                 )}
               >
                 Login
@@ -105,7 +105,7 @@ export default function AuthForm({ invalidLogin }: Props) {
                   "relative transition-all duration-300 data-[state=active]:text-amber-800 data-[state=active]:shadow-none",
                   "data-[state=active]:bg-white data-[state=active]:font-medium",
                   "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-amber-400",
-                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300"
+                  "data-[state=active]:after:scale-x-100 after:transition-transform after:duration-300",
                 )}
               >
                 Register

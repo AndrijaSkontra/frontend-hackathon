@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -24,7 +24,10 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-orange-300/70 via-orange-200/60 to-yellow-100/70" style={{ paddingBottom: "50px" } as React.CSSProperties}>
+    <section
+      className="relative overflow-hidden bg-gradient-to-br from-orange-300/70 via-orange-200/60 to-yellow-100/70"
+      style={{ paddingBottom: "50px" } as React.CSSProperties}
+    >
       {/* Decorative shapes - now using fixed values */}
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
         {decorativeShapes.map((shape, i) => (
@@ -54,24 +57,28 @@ export function HeroSection() {
           </h1>
 
           <p className="text-black/80 font-medium text-lg md:text-xl max-w-3xl mb-12">
-            Connect with fellow students, find study groups, discover job opportunities, 
-            and stay updated on campus events and dining options all in one place!
+            Connect with fellow students, find study groups, discover job
+            opportunities, and stay updated on campus events and dining options
+            all in one place!
           </p>
 
-          <Button size="lg" className="text-lg mb-8 rounded-full px-8 py-6 bg-black text-white hover:bg-black/90">
+          <Button
+            size="lg"
+            className="text-lg mb-8 rounded-full px-8 py-6 bg-black text-white hover:bg-black/90"
+          >
             Get Started
           </Button>
         </div>
-        
+
         {/* Full width scalloped image */}
         <div className="w-full px-0 -mb-16 ">
-          <ScallopedImage 
-            imageSrc="/student_dashboard.jpg" 
+          <ScallopedImage
+            imageSrc="/student_dashboard.jpg"
             className="w-full"
-            height={280}
+            height={290}
           />
         </div>
       </div>
     </section>
   );
-} 
+}

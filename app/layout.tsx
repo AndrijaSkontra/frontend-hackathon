@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CampusConnect - Student Life and More",
-  description: "Connect with fellow students, find events, study groups, and more",
+  description:
+    "Connect with fellow students, find events, study groups, and more",
 };
 
 export default function RootLayout({
@@ -31,4 +32,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} 
+}

@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
             onClick={() => switchLocale("en")}
             className={`p-2 rounded-full transition-all duration-300 ${
               locale === "en"
-                ? "bg-yellow-400/80 scale-110"
+                ? "text-2xl bg-yellow-400/80 scale-110"
                 : "hover:bg-yellow-200/50"
             }`}
             title="Switch to English"
@@ -32,7 +32,7 @@ export default function LanguageSwitcher() {
             onClick={() => switchLocale("hr")}
             className={`p-2 rounded-full transition-all duration-300 ${
               locale === "hr"
-                ? "bg-yellow-400/80 scale-110"
+                ? "text-2xl bg-yellow-400/80 scale-110"
                 : "hover:bg-yellow-200/50"
             }`}
             title="Switch to Croatian"

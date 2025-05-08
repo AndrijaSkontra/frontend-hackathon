@@ -12,10 +12,11 @@ interface HeaderProps {
 export function Header({ isLoggedIn = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeTab, setActiveTab] = useState("postings");
 
   useEffect(() => {
     setMounted(true);
-    
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -27,42 +28,44 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
   // Use a safe default (non-scrolled state) during SSR
   const headerClasses = cn(
     "w-full py-6 px-8 flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-    mounted && scrolled 
-      ? "bg-background/90 backdrop-blur-sm shadow-sm" 
-      : "bg-transparent"
+    mounted && scrolled
+      ? "bg-background/90 backdrop-blur-sm shadow-sm"
+      : "bg-transparent",
   );
 
   return (
     <header className={headerClasses}>
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center text-2xl font-bold text-primary">
+        <Link
+          href="/"
+          className="flex items-center text-2xl font-bold text-primary"
+        >
           <span className="mr-2">🎓</span>
           <span>CampusConnect</span>
         </Link>
 
         <nav className="absolute left-1/2 transform -translate-x-1/2 flex space-x-8">
-          <Link href="/events" className="text-foreground hover:text-primary transition-colors font-medium">
-            Events
+          <Link href="/posts" className="text-foreground hover:text-primary transition-colors font-medium">
+            Postings
           </Link>
-          <Link href="/study" className="text-foreground hover:text-primary transition-colors font-medium">
-            Study
+          <Link href="/cafeteria" className="text-foreground hover:text-primary transition-colors font-medium">
+            Cafeteria
           </Link>
-          <Link href="/jobs" className="text-foreground hover:text-primary transition-colors font-medium">
-            Jobs
-          </Link>
-          <Link href="/dining" className="text-foreground hover:text-primary transition-colors font-medium">
-            Food
-          </Link>
+          
         </nav>
 
         <div>
           {isLoggedIn ? (
-            <Button variant="default" className="rounded-full px-6">Dashboard</Button>
+            <Button variant="default" className="rounded-full px-6">
+              Dashboard
+            </Button>
           ) : (
-            <Button variant="default" className="rounded-full px-6">Login</Button>
+            <Button variant="default" className="rounded-full px-6">
+              Login
+            </Button>
           )}
         </div>
       </div>
     </header>
   );
-} 
+}

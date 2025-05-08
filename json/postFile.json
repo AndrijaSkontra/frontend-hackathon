@@ -1,776 +1,770 @@
 [
-    {
-      "id": 1,
-      "photoUrls": null,
-      "title": "Vegan chocolate chip cookies",
-      "description": "Delicious soft cookies, dairy-free and egg-free, perfect for treats.",
-      "contact": "765-999-1645",
-      "type": "JOB",
-      "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "6f72383d-7643-4171-88e1-136688009416"
-      ]
-    },
-    {
-      "id": 2,
-      "photoUrls": null,
-      "title": "Pet Camera with Treat Dispenser",
-      "description": "Monitor and interact with your pet remotely with this camera.",
-      "contact": "888-307-4526",
-      "type": "MARKETPLACE",
-      "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
-      "stars": [
-        "6f72383d-7643-4171-88e1-136688009416",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56"
-      ]
-    },
-    {
-      "id": 3,
-      "photoUrls": null,
-      "title": "Tuscan Bean Soup",
-      "description": "A hearty mix of beans in a flavorful tomato broth.",
-      "contact": "723-860-8177",
-      "type": "JOB",
-      "userId": "7fabb447-a9c0-4135-a758-164040406019",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56"
-      ]
-    },
-    {
-      "id": 4,
-      "photoUrls": null,
-      "title": "Kids' Educational Tablet",
-      "description": "Learning tablet with kid-friendly educational apps.",
-      "contact": "634-193-3582",
-      "type": "EVENT",
-      "userId": "6f72383d-7643-4171-88e1-136688009416",
-      "stars": [
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 5,
-      "photoUrls": null,
-      "title": "Pumpkin Seeds",
-      "description": "Crunchy roasted pumpkin seeds, great for snacking.",
-      "contact": "827-603-9222",
-      "type": "EVENT",
-      "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 6,
-      "photoUrls": null,
-      "title": "Beef Taco Skillet",
-      "description": "A convenient meal kit for making a delicious beef taco skillet at home.",
-      "contact": "963-309-7556",
-      "type": "JOB",
-      "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 7,
-      "photoUrls": null,
-      "title": "Wine Glasses",
-      "description": "Set of elegant wine glasses for special occasions.",
-      "contact": "637-917-2951",
-      "type": "EVENT",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "6f72383d-7643-4171-88e1-136688009416"
-      ]
-    },
-    {
-      "id": 8,
-      "photoUrls": null,
-      "title": "Pineapple Salsa",
-      "description": "Fresh salsa made with pineapple and spices",
-      "contact": "649-488-6133",
-      "type": "JOB",
-      "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 9,
-      "photoUrls": null,
-      "title": "Honey Almond Granola Bars",
-      "description": "Chewy granola bars made with honey and almonds.",
-      "contact": "769-460-2500",
-      "type": "JOB",
-      "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 10,
-      "photoUrls": null,
-      "title": "Frozen Vegetarian Pizza",
-      "description": "A delicious pizza loaded with vegetables",
-      "contact": "758-854-8381",
-      "type": "EVENT",
-      "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-      "stars": [
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 11,
-      "photoUrls": null,
-      "title": "Thai Green Curry Paste",
-      "description": "A rich curry paste for making authentic Thai green curry at home.",
-      "contact": "206-623-6430",
-      "type": "JOB",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 12,
-      "photoUrls": null,
-      "title": "Maple Cinnamon Granola Bars",
-      "description": "Chewy granola bars with maple and cinnamon flavor.",
-      "contact": "991-869-5252",
-      "type": "EVENT",
-      "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
-      ]
-    },
-    {
-      "id": 13,
-      "photoUrls": null,
-      "title": "Wall-Mounted Organizer",
-      "description": "Practical organizer for keeping your home tidy and clutter-free.",
-      "contact": "159-676-2035",
-      "type": "MARKETPLACE",
-      "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 14,
-      "photoUrls": null,
-      "title": "Crispy Rice Treats",
-      "description": "Classic marshmallow treats made with crispy rice.",
-      "contact": "528-378-1869",
-      "type": "JOB",
-      "userId": "6f72383d-7643-4171-88e1-136688009416",
-      "stars": [
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 15,
-      "photoUrls": null,
-      "title": "Honeycrisp Apple Chips",
-      "description": "Crispy and sweet dried apple slices",
-      "contact": "768-120-1799",
-      "type": "JOB",
-      "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-      "stars": [
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
-      ]
-    },
-    {
-      "id": 16,
-      "photoUrls": null,
-      "title": "Oven Thermometer",
-      "description": "High-precision oven thermometer for accurate cooking.",
-      "contact": "814-179-7877",
-      "type": "EVENT",
-      "userId": "7fabb447-a9c0-4135-a758-164040406019",
-      "stars": [
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 17,
-      "photoUrls": null,
-      "title": "Garlic Herb Seasoning",
-      "description": "A blend of herbs and garlic for seasoning meats and vegetables.",
-      "contact": "676-679-0749",
-      "type": "MARKETPLACE",
-      "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
-      "stars": []
-    },
-    {
-      "id": 18,
-      "photoUrls": null,
-      "title": "Adjustable Height Standing Desk Converter",
-      "description": "Convert your desk to a standing desk easily.",
-      "contact": "170-719-4035",
-      "type": "JOB",
-      "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "75943419-6a2f-4401-a7e0-612f691ad9de"
-      ]
-    },
-    {
-      "id": 19,
-      "photoUrls": null,
-      "title": "Pear and Gorgonzola Salad",
-      "description": "Fresh salad with pears, gorgonzola cheese, and nuts, perfect for lunch.",
-      "contact": "604-247-1739",
-      "type": "EVENT",
-      "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
-      "stars": [
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "527d85bb-2669-4608-bf1e-028beed08f56"
-      ]
-    },
-    {
-      "id": 20,
-      "photoUrls": null,
-      "title": "Body Pillow Case",
-      "description": "Soft and breathable pillowcase for body pillows.",
-      "contact": "921-281-1631",
-      "type": "MARKETPLACE",
-      "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 21,
-      "photoUrls": null,
-      "title": "Carrot Sticks",
-      "description": "Freshly cut carrot sticks, perfect for snacking.",
-      "contact": "952-590-8973",
-      "type": "EVENT",
-      "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-      "stars": [
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 22,
-      "photoUrls": null,
-      "title": "Mini Electric Kettle",
-      "description": "Quick boiling kettle for small kitchens and dorms.",
-      "contact": "955-790-7084",
-      "type": "EVENT",
-      "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 23,
-      "photoUrls": null,
-      "title": "Silicone Baking Mats",
-      "description": "Reusable silicone mats for non-stick baking.",
-      "contact": "876-106-9271",
-      "type": "MARKETPLACE",
-      "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-      "stars": [
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
-      ]
-    },
-    {
-      "id": 24,
-      "photoUrls": null,
-      "title": "Kids' Science Experiment Kit",
-      "description": "Engaging kit with science experiments for children.",
-      "contact": "315-958-7315",
-      "type": "EVENT",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "6f72383d-7643-4171-88e1-136688009416",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 25,
-      "photoUrls": null,
-      "title": "Pumpkin Spice Pancake Mix",
-      "description": "Pancake mix infused with seasonal pumpkin spice flavor.",
-      "contact": "231-447-5333",
-      "type": "MARKETPLACE",
-      "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e"
-      ]
-    },
-    {
-      "id": 26,
-      "photoUrls": null,
-      "title": "Sunglasses",
-      "description": "Polarized sunglasses with UV protection.",
-      "contact": "689-273-6114",
-      "type": "MARKETPLACE",
-      "userId": "7fabb447-a9c0-4135-a758-164040406019",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 27,
-      "photoUrls": null,
-      "title": "Herbal Tea Set",
-      "description": "Assorted herbal tea bags for relaxation and wellness.",
-      "contact": "433-844-0564",
-      "type": "MARKETPLACE",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
-      ]
-    },
-    {
-      "id": 28,
-      "photoUrls": null,
-      "title": "Portable Hammock Swing",
-      "description": "Lightweight and portable swing hammock for relaxing outdoors.",
-      "contact": "591-781-7838",
-      "type": "MARKETPLACE",
-      "userId": "6f72383d-7643-4171-88e1-136688009416",
-      "stars": [
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
-      ]
-    },
-    {
-      "id": 29,
-      "photoUrls": null,
-      "title": "Portable Air Compressor",
-      "description": "Compact air compressor for inflating tires and sports equipment.",
-      "contact": "491-910-1370",
-      "type": "JOB",
-      "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-      "stars": []
-    },
-    {
-      "id": 30,
-      "photoUrls": null,
-      "title": "Pasta (Fusilli)",
-      "description": "Twisted pasta perfect for salads and pasta dishes.",
-      "contact": "439-605-5911",
-      "type": "EVENT",
-      "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
-      ]
-    },
-    {
-      "id": 31,
-      "photoUrls": null,
-      "title": "Spicy Garlic Edamame",
-      "description": "Steamed edamame tossed in a spicy garlic sauce, great for snacking.",
-      "contact": "939-843-0413",
-      "type": "JOB",
-      "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
-      ]
-    },
-    {
-      "id": 32,
-      "photoUrls": null,
-      "title": "Protein Bar Variety Pack",
-      "description": "A pack of assorted nut and protein bars for a quick energy boost.",
-      "contact": "447-697-7430",
-      "type": "EVENT",
-      "userId": "7fabb447-a9c0-4135-a758-164040406019",
-      "stars": [
-        "6f72383d-7643-4171-88e1-136688009416",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e"
-      ]
-    },
-    {
-      "id": 33,
-      "photoUrls": null,
-      "title": "Pet Waterer with Filtration",
-      "description": "Automatic waterer that filters and provides fresh drinking water for pets.",
-      "contact": "997-958-9568",
-      "type": "MARKETPLACE",
-      "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
-      "stars": [
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 34,
-      "photoUrls": null,
-      "title": "Electric Rice Cooker with Steamer",
-      "description": "Cook rice and steam vegetables simultaneously for healthy meals.",
-      "contact": "615-916-7117",
-      "type": "MARKETPLACE",
-      "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
-      ]
-    },
-    {
-      "id": 35,
-      "photoUrls": null,
-      "title": "Eggs (dozen)",
-      "description": "Farm fresh eggs, essential for breakfast.",
-      "contact": "697-790-2798",
-      "type": "JOB",
-      "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 36,
-      "photoUrls": null,
-      "title": "Bicycle Repair Kit",
-      "description": "Essential tools for on-the-go bike maintenance.",
-      "contact": "614-963-5051",
-      "type": "MARKETPLACE",
-      "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
-      "stars": [
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 37,
-      "photoUrls": null,
-      "title": "Red Lentils",
-      "description": "Nutritious and quick-cooking red lentils.",
-      "contact": "452-750-7136",
-      "type": "JOB",
-      "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-      "stars": [
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 38,
-      "photoUrls": null,
-      "title": "Key Finder",
-      "description": "Bluetooth-enabled key tracker to find lost items easily.",
-      "contact": "561-354-6263",
-      "type": "EVENT",
-      "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56"
-      ]
-    },
-    {
-      "id": 39,
-      "photoUrls": null,
-      "title": "Gaming Headset",
-      "description": "Comfortable gaming headset with surround sound.",
-      "contact": "790-896-1616",
-      "type": "EVENT",
-      "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 40,
-      "photoUrls": null,
-      "title": "Throw Pillow Covers",
-      "description": "Set of decorative pillow covers to enhance your home decor.",
-      "contact": "220-312-8174",
-      "type": "MARKETPLACE",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "6f72383d-7643-4171-88e1-136688009416"
-      ]
-    },
-    {
-      "id": 41,
-      "photoUrls": null,
-      "title": "Raisin Cinnamon Granola",
-      "description": "Crunchy granola with raisins and cinnamon for a delightful breakfast.",
-      "contact": "735-542-6532",
-      "type": "JOB",
-      "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "75943419-6a2f-4401-a7e0-612f691ad9de"
-      ]
-    },
-    {
-      "id": 42,
-      "photoUrls": null,
-      "title": "Pineapple Chunks (canned)",
-      "description": "Sweet pineapple chunks in syrup.",
-      "contact": "154-149-4283",
-      "type": "EVENT",
-      "userId": "7fabb447-a9c0-4135-a758-164040406019",
-      "stars": [
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 43,
-      "photoUrls": null,
-      "title": "Electric Meat Grinder",
-      "description": "Powerful grinder for making sausage and burgers at home.",
-      "contact": "307-260-6272",
-      "type": "EVENT",
-      "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "7e608437-00ba-4a22-88c5-e84229548b27"
-      ]
-    },
-    {
-      "id": 44,
-      "photoUrls": null,
-      "title": "Kale and Quinoa Salad",
-      "description": "A nutritious salad with kale, quinoa, and a zesty lemon dressing.",
-      "contact": "674-926-8830",
-      "type": "JOB",
-      "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 45,
-      "photoUrls": null,
-      "title": "Mango Chunks",
-      "description": "Frozen mango chunks for smoothies or snacking.",
-      "contact": "429-298-0889",
-      "type": "EVENT",
-      "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-      "stars": [
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
-      ]
-    },
-    {
-      "id": 46,
-      "photoUrls": null,
-      "title": "Italian Breadsticks",
-      "description": "Crispy breadsticks seasoned with herbs and garlic.",
-      "contact": "104-593-1160",
-      "type": "MARKETPLACE",
-      "userId": "6f72383d-7643-4171-88e1-136688009416",
-      "stars": [
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "f6ab08af-368d-4528-8e0a-35325445141a"
-      ]
-    },
-    {
-      "id": 47,
-      "photoUrls": null,
-      "title": "Weighted Jump Rope",
-      "description": "Adjustable weighted jump rope for workouts.",
-      "contact": "731-167-0211",
-      "type": "JOB",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
-      ]
-    },
-    {
-      "id": 48,
-      "photoUrls": null,
-      "title": "Coconut Curry Lentils",
-      "description": "Lentils cooked in a coconut curry for a hearty meal.",
-      "contact": "457-699-0859",
-      "type": "JOB",
-      "userId": "6f72383d-7643-4171-88e1-136688009416",
-      "stars": [
-        "7fabb447-a9c0-4135-a758-164040406019",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb"
-      ]
-    },
-    {
-      "id": 49,
-      "photoUrls": null,
-      "title": "Electric Blanket",
-      "description": "Extra soft electric blanket with adjustable heat settings.",
-      "contact": "115-562-9505",
-      "type": "JOB",
-      "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-      "stars": [
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "75943419-6a2f-4401-a7e0-612f691ad9de",
-        "7e608437-00ba-4a22-88c5-e84229548b27",
-        "527d85bb-2669-4608-bf1e-028beed08f56",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e"
-      ]
-    },
-    {
-      "id": 50,
-      "photoUrls": null,
-      "title": "Gardening Fairy Figurines",
-      "description": "Cute fairy figurines to decorate your garden or potted plants.",
-      "contact": "611-476-7403",
-      "type": "EVENT",
-      "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
-      "stars": [
-        "f6ab08af-368d-4528-8e0a-35325445141a",
-        "6f72383d-7643-4171-88e1-136688009416",
-        "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
-        "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
-        "334b6546-99e0-4e32-88d2-8fd2a105cecb",
-        "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
-      ]
-    }
-  ]
+  {
+    "id": 1,
+    "photoUrls": null,
+    "title": "Vegan chocolate chip cookies",
+    "description": "Delicious soft cookies, dairy-free and egg-free, perfect for treats.",
+    "contact": "765-999-1645",
+    "type": "JOB",
+    "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "6f72383d-7643-4171-88e1-136688009416"
+    ]
+  },
+  {
+    "id": 2,
+    "photoUrls": null,
+    "title": "Pet Camera with Treat Dispenser",
+    "description": "Monitor and interact with your pet remotely with this camera.",
+    "contact": "888-307-4526",
+    "type": "MARKETPLACE",
+    "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
+    "stars": [
+      "6f72383d-7643-4171-88e1-136688009416",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56"
+    ]
+  },
+  {
+    "id": 3,
+    "photoUrls": null,
+    "title": "Tuscan Bean Soup",
+    "description": "A hearty mix of beans in a flavorful tomato broth.",
+    "contact": "723-860-8177",
+    "type": "JOB",
+    "userId": "7fabb447-a9c0-4135-a758-164040406019",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56"
+    ]
+  },
+  {
+    "id": 4,
+    "photoUrls": null,
+    "title": "Kids' Educational Tablet",
+    "description": "Learning tablet with kid-friendly educational apps.",
+    "contact": "634-193-3582",
+    "type": "EVENT",
+    "userId": "6f72383d-7643-4171-88e1-136688009416",
+    "stars": [
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 5,
+    "photoUrls": null,
+    "title": "Pumpkin Seeds",
+    "description": "Crunchy roasted pumpkin seeds, great for snacking.",
+    "contact": "827-603-9222",
+    "type": "EVENT",
+    "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 6,
+    "photoUrls": null,
+    "title": "Beef Taco Skillet",
+    "description": "A convenient meal kit for making a delicious beef taco skillet at home.",
+    "contact": "963-309-7556",
+    "type": "JOB",
+    "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
+    "stars": [
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb"
+    ]
+  },
+  {
+    "id": 7,
+    "photoUrls": null,
+    "title": "Wine Glasses",
+    "description": "Set of elegant wine glasses for special occasions.",
+    "contact": "637-917-2951",
+    "type": "EVENT",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "6f72383d-7643-4171-88e1-136688009416"
+    ]
+  },
+  {
+    "id": 8,
+    "photoUrls": null,
+    "title": "Pineapple Salsa",
+    "description": "Fresh salsa made with pineapple and spices",
+    "contact": "649-488-6133",
+    "type": "JOB",
+    "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 9,
+    "photoUrls": null,
+    "title": "Honey Almond Granola Bars",
+    "description": "Chewy granola bars made with honey and almonds.",
+    "contact": "769-460-2500",
+    "type": "JOB",
+    "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
+    "stars": ["334b6546-99e0-4e32-88d2-8fd2a105cecb"]
+  },
+  {
+    "id": 10,
+    "photoUrls": null,
+    "title": "Frozen Vegetarian Pizza",
+    "description": "A delicious pizza loaded with vegetables",
+    "contact": "758-854-8381",
+    "type": "EVENT",
+    "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+    "stars": [
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb"
+    ]
+  },
+  {
+    "id": 11,
+    "photoUrls": null,
+    "title": "Thai Green Curry Paste",
+    "description": "A rich curry paste for making authentic Thai green curry at home.",
+    "contact": "206-623-6430",
+    "type": "JOB",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 12,
+    "photoUrls": null,
+    "title": "Maple Cinnamon Granola Bars",
+    "description": "Chewy granola bars with maple and cinnamon flavor.",
+    "contact": "991-869-5252",
+    "type": "EVENT",
+    "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "stars": [
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
+    ]
+  },
+  {
+    "id": 13,
+    "photoUrls": null,
+    "title": "Wall-Mounted Organizer",
+    "description": "Practical organizer for keeping your home tidy and clutter-free.",
+    "contact": "159-676-2035",
+    "type": "MARKETPLACE",
+    "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
+    "stars": [
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 14,
+    "photoUrls": null,
+    "title": "Crispy Rice Treats",
+    "description": "Classic marshmallow treats made with crispy rice.",
+    "contact": "528-378-1869",
+    "type": "JOB",
+    "userId": "6f72383d-7643-4171-88e1-136688009416",
+    "stars": [
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 15,
+    "photoUrls": null,
+    "title": "Honeycrisp Apple Chips",
+    "description": "Crispy and sweet dried apple slices",
+    "contact": "768-120-1799",
+    "type": "JOB",
+    "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "stars": [
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
+    ]
+  },
+  {
+    "id": 16,
+    "photoUrls": null,
+    "title": "Oven Thermometer",
+    "description": "High-precision oven thermometer for accurate cooking.",
+    "contact": "814-179-7877",
+    "type": "EVENT",
+    "userId": "7fabb447-a9c0-4135-a758-164040406019",
+    "stars": [
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 17,
+    "photoUrls": null,
+    "title": "Garlic Herb Seasoning",
+    "description": "A blend of herbs and garlic for seasoning meats and vegetables.",
+    "contact": "676-679-0749",
+    "type": "MARKETPLACE",
+    "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
+    "stars": []
+  },
+  {
+    "id": 18,
+    "photoUrls": null,
+    "title": "Adjustable Height Standing Desk Converter",
+    "description": "Convert your desk to a standing desk easily.",
+    "contact": "170-719-4035",
+    "type": "JOB",
+    "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "75943419-6a2f-4401-a7e0-612f691ad9de"
+    ]
+  },
+  {
+    "id": 19,
+    "photoUrls": null,
+    "title": "Pear and Gorgonzola Salad",
+    "description": "Fresh salad with pears, gorgonzola cheese, and nuts, perfect for lunch.",
+    "contact": "604-247-1739",
+    "type": "EVENT",
+    "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
+    "stars": [
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "527d85bb-2669-4608-bf1e-028beed08f56"
+    ]
+  },
+  {
+    "id": 20,
+    "photoUrls": null,
+    "title": "Body Pillow Case",
+    "description": "Soft and breathable pillowcase for body pillows.",
+    "contact": "921-281-1631",
+    "type": "MARKETPLACE",
+    "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 21,
+    "photoUrls": null,
+    "title": "Carrot Sticks",
+    "description": "Freshly cut carrot sticks, perfect for snacking.",
+    "contact": "952-590-8973",
+    "type": "EVENT",
+    "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+    "stars": [
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb"
+    ]
+  },
+  {
+    "id": 22,
+    "photoUrls": null,
+    "title": "Mini Electric Kettle",
+    "description": "Quick boiling kettle for small kitchens and dorms.",
+    "contact": "955-790-7084",
+    "type": "EVENT",
+    "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 23,
+    "photoUrls": null,
+    "title": "Silicone Baking Mats",
+    "description": "Reusable silicone mats for non-stick baking.",
+    "contact": "876-106-9271",
+    "type": "MARKETPLACE",
+    "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "stars": [
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
+    ]
+  },
+  {
+    "id": 24,
+    "photoUrls": null,
+    "title": "Kids' Science Experiment Kit",
+    "description": "Engaging kit with science experiments for children.",
+    "contact": "315-958-7315",
+    "type": "EVENT",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "6f72383d-7643-4171-88e1-136688009416",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 25,
+    "photoUrls": null,
+    "title": "Pumpkin Spice Pancake Mix",
+    "description": "Pancake mix infused with seasonal pumpkin spice flavor.",
+    "contact": "231-447-5333",
+    "type": "MARKETPLACE",
+    "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e"
+    ]
+  },
+  {
+    "id": 26,
+    "photoUrls": null,
+    "title": "Sunglasses",
+    "description": "Polarized sunglasses with UV protection.",
+    "contact": "689-273-6114",
+    "type": "MARKETPLACE",
+    "userId": "7fabb447-a9c0-4135-a758-164040406019",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 27,
+    "photoUrls": null,
+    "title": "Herbal Tea Set",
+    "description": "Assorted herbal tea bags for relaxation and wellness.",
+    "contact": "433-844-0564",
+    "type": "MARKETPLACE",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
+    ]
+  },
+  {
+    "id": 28,
+    "photoUrls": null,
+    "title": "Portable Hammock Swing",
+    "description": "Lightweight and portable swing hammock for relaxing outdoors.",
+    "contact": "591-781-7838",
+    "type": "MARKETPLACE",
+    "userId": "6f72383d-7643-4171-88e1-136688009416",
+    "stars": [
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
+    ]
+  },
+  {
+    "id": 29,
+    "photoUrls": null,
+    "title": "Portable Air Compressor",
+    "description": "Compact air compressor for inflating tires and sports equipment.",
+    "contact": "491-910-1370",
+    "type": "JOB",
+    "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+    "stars": []
+  },
+  {
+    "id": 30,
+    "photoUrls": null,
+    "title": "Pasta (Fusilli)",
+    "description": "Twisted pasta perfect for salads and pasta dishes.",
+    "contact": "439-605-5911",
+    "type": "EVENT",
+    "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
+    ]
+  },
+  {
+    "id": 31,
+    "photoUrls": null,
+    "title": "Spicy Garlic Edamame",
+    "description": "Steamed edamame tossed in a spicy garlic sauce, great for snacking.",
+    "contact": "939-843-0413",
+    "type": "JOB",
+    "userId": "f6ab08af-368d-4528-8e0a-35325445141a",
+    "stars": [
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
+    ]
+  },
+  {
+    "id": 32,
+    "photoUrls": null,
+    "title": "Protein Bar Variety Pack",
+    "description": "A pack of assorted nut and protein bars for a quick energy boost.",
+    "contact": "447-697-7430",
+    "type": "EVENT",
+    "userId": "7fabb447-a9c0-4135-a758-164040406019",
+    "stars": [
+      "6f72383d-7643-4171-88e1-136688009416",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e"
+    ]
+  },
+  {
+    "id": 33,
+    "photoUrls": null,
+    "title": "Pet Waterer with Filtration",
+    "description": "Automatic waterer that filters and provides fresh drinking water for pets.",
+    "contact": "997-958-9568",
+    "type": "MARKETPLACE",
+    "userId": "7e608437-00ba-4a22-88c5-e84229548b27",
+    "stars": [
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 34,
+    "photoUrls": null,
+    "title": "Electric Rice Cooker with Steamer",
+    "description": "Cook rice and steam vegetables simultaneously for healthy meals.",
+    "contact": "615-916-7117",
+    "type": "MARKETPLACE",
+    "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
+    "stars": ["c522f1d6-760b-4755-84d0-f6e4f0dcc098"]
+  },
+  {
+    "id": 35,
+    "photoUrls": null,
+    "title": "Eggs (dozen)",
+    "description": "Farm fresh eggs, essential for breakfast.",
+    "contact": "697-790-2798",
+    "type": "JOB",
+    "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb"
+    ]
+  },
+  {
+    "id": 36,
+    "photoUrls": null,
+    "title": "Bicycle Repair Kit",
+    "description": "Essential tools for on-the-go bike maintenance.",
+    "contact": "614-963-5051",
+    "type": "MARKETPLACE",
+    "userId": "75943419-6a2f-4401-a7e0-612f691ad9de",
+    "stars": [
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 37,
+    "photoUrls": null,
+    "title": "Red Lentils",
+    "description": "Nutritious and quick-cooking red lentils.",
+    "contact": "452-750-7136",
+    "type": "JOB",
+    "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "stars": [
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 38,
+    "photoUrls": null,
+    "title": "Key Finder",
+    "description": "Bluetooth-enabled key tracker to find lost items easily.",
+    "contact": "561-354-6263",
+    "type": "EVENT",
+    "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+    "stars": [
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56"
+    ]
+  },
+  {
+    "id": 39,
+    "photoUrls": null,
+    "title": "Gaming Headset",
+    "description": "Comfortable gaming headset with surround sound.",
+    "contact": "790-896-1616",
+    "type": "EVENT",
+    "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 40,
+    "photoUrls": null,
+    "title": "Throw Pillow Covers",
+    "description": "Set of decorative pillow covers to enhance your home decor.",
+    "contact": "220-312-8174",
+    "type": "MARKETPLACE",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "6f72383d-7643-4171-88e1-136688009416"
+    ]
+  },
+  {
+    "id": 41,
+    "photoUrls": null,
+    "title": "Raisin Cinnamon Granola",
+    "description": "Crunchy granola with raisins and cinnamon for a delightful breakfast.",
+    "contact": "735-542-6532",
+    "type": "JOB",
+    "userId": "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "75943419-6a2f-4401-a7e0-612f691ad9de"
+    ]
+  },
+  {
+    "id": 42,
+    "photoUrls": null,
+    "title": "Pineapple Chunks (canned)",
+    "description": "Sweet pineapple chunks in syrup.",
+    "contact": "154-149-4283",
+    "type": "EVENT",
+    "userId": "7fabb447-a9c0-4135-a758-164040406019",
+    "stars": [
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb"
+    ]
+  },
+  {
+    "id": 43,
+    "photoUrls": null,
+    "title": "Electric Meat Grinder",
+    "description": "Powerful grinder for making sausage and burgers at home.",
+    "contact": "307-260-6272",
+    "type": "EVENT",
+    "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "7e608437-00ba-4a22-88c5-e84229548b27"
+    ]
+  },
+  {
+    "id": 44,
+    "photoUrls": null,
+    "title": "Kale and Quinoa Salad",
+    "description": "A nutritious salad with kale, quinoa, and a zesty lemon dressing.",
+    "contact": "674-926-8830",
+    "type": "JOB",
+    "userId": "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+    "stars": ["f6ab08af-368d-4528-8e0a-35325445141a"]
+  },
+  {
+    "id": 45,
+    "photoUrls": null,
+    "title": "Mango Chunks",
+    "description": "Frozen mango chunks for smoothies or snacking.",
+    "contact": "429-298-0889",
+    "type": "EVENT",
+    "userId": "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+    "stars": [
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
+    ]
+  },
+  {
+    "id": 46,
+    "photoUrls": null,
+    "title": "Italian Breadsticks",
+    "description": "Crispy breadsticks seasoned with herbs and garlic.",
+    "contact": "104-593-1160",
+    "type": "MARKETPLACE",
+    "userId": "6f72383d-7643-4171-88e1-136688009416",
+    "stars": [
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "f6ab08af-368d-4528-8e0a-35325445141a"
+    ]
+  },
+  {
+    "id": 47,
+    "photoUrls": null,
+    "title": "Weighted Jump Rope",
+    "description": "Adjustable weighted jump rope for workouts.",
+    "contact": "731-167-0211",
+    "type": "JOB",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb"
+    ]
+  },
+  {
+    "id": 48,
+    "photoUrls": null,
+    "title": "Coconut Curry Lentils",
+    "description": "Lentils cooked in a coconut curry for a hearty meal.",
+    "contact": "457-699-0859",
+    "type": "JOB",
+    "userId": "6f72383d-7643-4171-88e1-136688009416",
+    "stars": [
+      "7fabb447-a9c0-4135-a758-164040406019",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb"
+    ]
+  },
+  {
+    "id": 49,
+    "photoUrls": null,
+    "title": "Electric Blanket",
+    "description": "Extra soft electric blanket with adjustable heat settings.",
+    "contact": "115-562-9505",
+    "type": "JOB",
+    "userId": "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+    "stars": [
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "75943419-6a2f-4401-a7e0-612f691ad9de",
+      "7e608437-00ba-4a22-88c5-e84229548b27",
+      "527d85bb-2669-4608-bf1e-028beed08f56",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e"
+    ]
+  },
+  {
+    "id": 50,
+    "photoUrls": null,
+    "title": "Gardening Fairy Figurines",
+    "description": "Cute fairy figurines to decorate your garden or potted plants.",
+    "contact": "611-476-7403",
+    "type": "EVENT",
+    "userId": "527d85bb-2669-4608-bf1e-028beed08f56",
+    "stars": [
+      "f6ab08af-368d-4528-8e0a-35325445141a",
+      "6f72383d-7643-4171-88e1-136688009416",
+      "ed62ec0d-5ba2-4129-aa3f-b465918dd91e",
+      "d4c32d0d-9cdf-4bf8-a110-63b12ccfd1bb",
+      "334b6546-99e0-4e32-88d2-8fd2a105cecb",
+      "c522f1d6-760b-4755-84d0-f6e4f0dcc098"
+    ]
+  }
+]

@@ -1,13 +1,7 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
-export default async function NotFound({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  redirect(`/${locale}`);
-
+export default async function NotFound() {
   // This part won't be rendered due to the redirect, but we keep it for type safety
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -19,7 +13,12 @@ export default async function NotFound({
         <p className="text-gray-600 mb-6">
           The page you are looking for doesn't exist or has been moved.
         </p>
-        <p className="text-gray-500">Redirecting you to the login page...</p>
+        <Link
+          href={`/login`}
+          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Go to Login
+        </Link>
       </div>
     </div>
   );

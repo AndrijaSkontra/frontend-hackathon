@@ -6,6 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 interface Cafeteria {
   cafeteriaId: string;
@@ -152,21 +161,74 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                         menu.menuType === mealType.toUpperCase()
                                     )
                                     .map((menu, idx) => (
-                                      <Card
-                                        key={idx}
-                                        className="p-4 hover:shadow-md transition-all border-amber-200"
-                                      >
-                                        <div className="flex justify-between mb-2">
-                                          <h3 className="font-bold text-amber-900">
-                                            {menu.name}
-                                          </h3>
-                                        </div>
-                                        <div className="text-sm text-amber-600">
-                                          {new Date(
-                                            menu.date
-                                          ).toLocaleDateString()}
-                                        </div>
-                                      </Card>
+                                      <div key={idx}>
+                                        <Dialog>
+                                          <DialogTrigger asChild>
+                                            <Card className="p-4 hover:shadow-md transition-all border-amber-200 cursor-pointer">
+                                              <div className="flex justify-between mb-2">
+                                                <h3 className="font-bold text-amber-900">
+                                                  {menu.name}
+                                                </h3>
+                                              </div>
+                                              <div className="text-sm text-amber-600">
+                                                {new Date(
+                                                  menu.date
+                                                ).toLocaleDateString()}
+                                              </div>
+                                            </Card>
+                                          </DialogTrigger>
+                                          <DialogContent className="sm:max-w-[425px]">
+                                            <DialogHeader>
+                                              <DialogTitle>
+                                                {menu.name}
+                                              </DialogTitle>
+                                              <DialogDescription>
+                                                Menu details for{" "}
+                                                {new Date(
+                                                  menu.date
+                                                ).toLocaleDateString()}
+                                              </DialogDescription>
+                                            </DialogHeader>
+                                            <div className="grid gap-4 py-4">
+                                              <div className="space-y-2">
+                                                <h4 className="font-medium text-amber-900">
+                                                  Main Course
+                                                </h4>
+                                                <p className="text-sm text-amber-600">
+                                                  Grilled Chicken with Seasonal
+                                                  Vegetables
+                                                </p>
+                                              </div>
+                                              <div className="space-y-2">
+                                                <h4 className="font-medium text-amber-900">
+                                                  Side Dishes
+                                                </h4>
+                                                <ul className="text-sm text-amber-600">
+                                                  <li>Roasted Potatoes</li>
+                                                  <li>Garden Salad</li>
+                                                  <li>Fresh Bread</li>
+                                                </ul>
+                                              </div>
+                                              <div className="space-y-2">
+                                                <h4 className="font-medium text-amber-900">
+                                                  Dessert
+                                                </h4>
+                                                <p className="text-sm text-amber-600">
+                                                  Chocolate Pudding
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <DialogFooter>
+                                              <Button
+                                                variant="outline"
+                                                className="bg-amber-100 hover:bg-amber-200"
+                                              >
+                                                Close
+                                              </Button>
+                                            </DialogFooter>
+                                          </DialogContent>
+                                        </Dialog>
+                                      </div>
                                     ))}
                                 </div>
                               </TabsContent>

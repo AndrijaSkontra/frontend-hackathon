@@ -2,107 +2,100 @@
 
 import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { useSession, signOut } from "next-auth/react";
+import { Session } from "next-auth";
 
-type User = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  profileImage?: string;
-};
+interface ExtendedSession extends Session {
+  user: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    profileImage?: string;
+    accessToken: string;
+  } & Session["user"];
+}
 
 export function UserAvatar() {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: session, status } = useSession() as {
+    data: ExtendedSession | null;
+    status: string;
+  };
   const [isMobileView, setIsMobileView] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  
+
   // Extract the locale from the pathname
-  const locale = pathname?.split('/')[1] || 'en';
-  
+  const locale = pathname?.split("/")[1] || "en";
+
   useEffect(() => {
     // Check for window resize to determine mobile view
     const handleResize = () => {
       setIsMobileView(window.innerWidth < 768);
     };
-    
+
     handleResize(); // Initial check
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
-  useEffect(() => {
-    // Simulate checking for user session
-    const checkUserSession = async () => {
-      setIsLoading(true);
-      try {
-        // Replace this with your actual user session retrieval logic
-        // e.g., const response = await fetch('/api/user/session');
-        // For now, we'll check localStorage as a simple example
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-          setUser(JSON.parse(storedUser));
-        }
-      } catch (error) {
-        console.error("Error checking user session:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    
-    checkUserSession();
-  }, []);
-  
+
   const handleSignOut = () => {
-    // Replace with your actual logout logic
-    localStorage.removeItem('user');
-    setUser(null);
-    router.push(`/${locale}`);
+    signOut({ callbackUrl: `/${locale}` });
   };
-  
+
   // Generate user initials
   const getInitials = () => {
-    if (!user) return "GU"; // Guest User
-    return `${user.firstName[0]}${user.lastName[0]}`;
+    if (!session?.user) return "GU"; // Guest User
+    const firstName = session.user.firstName || "";
+    const lastName = session.user.lastName || "";
+    return `${firstName[0]}${lastName[0]}`;
   };
-  
-  if (isLoading) {
+
+  if (status === "loading") {
     return (
       <div className="h-9 w-9 rounded-full bg-gray-200 animate-pulse"></div>
     );
   }
-  
-  if (!user) {
+
+  if (!session?.user) {
     return (
       <Button variant="default" className="rounded-full px-6" asChild>
         <Link href={`/${locale}/login`}>Login</Link>
       </Button>
     );
   }
-  
+
   // User is logged in, show avatar and dropdown
   return isMobileView ? (
     <Sheet>
       <SheetTrigger asChild>
         <button className="h-9 w-9 rounded-full overflow-hidden">
           <Avatar>
-            <AvatarImage src={user.profileImage} alt={`${user.firstName} ${user.lastName}`} />
+            <AvatarImage
+              src={session.user.profileImage}
+              alt={`${session.user.firstName} ${session.user.lastName}`}
+            />
             <AvatarFallback className="bg-black text-white">
               {getInitials()}
             </AvatarFallback>
@@ -113,44 +106,49 @@ export function UserAvatar() {
         <SheetHeader className="pb-6">
           <SheetTitle>Your Profile</SheetTitle>
         </SheetHeader>
-        
+
         <div className="flex flex-col">
           <div className="flex items-center space-x-4 mb-6">
             <Avatar className="h-16 w-16">
-              <AvatarImage src={user.profileImage} alt={`${user.firstName} ${user.lastName}`} />
+              <AvatarImage
+                src={session.user.profileImage}
+                alt={`${session.user.firstName} ${session.user.lastName}`}
+              />
               <AvatarFallback className="bg-black text-white text-xl">
                 {getInitials()}
               </AvatarFallback>
             </Avatar>
             <div>
-              <h3 className="font-bold text-xl">{user.firstName} {user.lastName}</h3>
-              <p className="text-gray-500 text-sm">{user.email}</p>
+              <h3 className="font-bold text-xl">
+                {session.user.firstName} {session.user.lastName}
+              </h3>
+              <p className="text-gray-500 text-sm">{session.user.email}</p>
             </div>
           </div>
-          
+
           <nav className="flex flex-col space-y-2 mb-8">
-            <Link 
+            <Link
               href={`/${locale}/profile`}
               className="px-4 py-2 rounded-lg hover:bg-gray-100 flex items-center"
             >
               <span className="mr-3">👤</span>
               <span>My Profile</span>
             </Link>
-            <Link 
+            <Link
               href={`/${locale}/profile/postings`}
               className="px-4 py-2 rounded-lg hover:bg-gray-100 flex items-center"
             >
               <span className="mr-3">📝</span>
               <span>My Postings</span>
             </Link>
-            <Link 
+            <Link
               href={`/${locale}/profile/saved`}
               className="px-4 py-2 rounded-lg hover:bg-gray-100 flex items-center"
             >
               <span className="mr-3">🔖</span>
               <span>Saved Items</span>
             </Link>
-            <Link 
+            <Link
               href={`/${locale}/profile/settings`}
               className="px-4 py-2 rounded-lg hover:bg-gray-100 flex items-center"
             >
@@ -158,9 +156,9 @@ export function UserAvatar() {
               <span>Settings</span>
             </Link>
           </nav>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             className="w-full border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700"
             onClick={handleSignOut}
           >
@@ -172,10 +170,13 @@ export function UserAvatar() {
   ) : (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-9 w-9 rounded-full overflow-hidden">
+        <button className="h-9 w-9 rounded-full">
           <Avatar>
-            <AvatarImage src={user.profileImage} alt={`${user.firstName} ${user.lastName}`} />
-            <AvatarFallback className="bg-black text-white">
+            <AvatarImage
+              src={session.user.profileImage}
+              alt={`${session.user.firstName} ${session.user.lastName}`}
+            />
+            <AvatarFallback className="bg-yellow-500 text-white">
               {getInitials()}
             </AvatarFallback>
           </Avatar>
@@ -184,8 +185,10 @@ export function UserAvatar() {
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel>
           <div className="flex flex-col">
-            <span className="font-bold">{user.firstName} {user.lastName}</span>
-            <span className="text-xs text-gray-500">{user.email}</span>
+            <span className="font-bold">
+              {session.user.firstName} {session.user.lastName}
+            </span>
+            <span className="text-xs text-gray-500">{session.user.email}</span>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -208,4 +211,4 @@ export function UserAvatar() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-} 
+}

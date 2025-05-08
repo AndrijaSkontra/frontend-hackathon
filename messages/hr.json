@@ -21,9 +21,9 @@
   },
   "CafeteriaPage": {
     "menu": "Meni",
-    "breakfast": "Dobro jutro",
-    "lunch": "Dobar dan",
-    "dinner": "Dobro večer",
+    "breakfast": "Doručak",
+    "lunch": "Ručak",
+    "dinner": "Večera",
     "backToAll": "Povratak na sve menze",
     "address": "Adresa",
     "todaysMenu": "Današnji meni",

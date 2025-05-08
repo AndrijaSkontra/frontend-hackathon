@@ -1,7 +1,7 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,15 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface Cafeteria {
@@ -49,15 +58,48 @@ interface CafeteriaPageProps {
   cafeterias: CafeteriaWithMenu[];
 }
 
+const ALL_ALLERGIES = [
+  "MILK",
+  "EGGS",
+  "SOY",
+  "WHEAT",
+  "NUTS",
+  "FISH",
+  "SHELLFISH",
+  "PEANUTS",
+] as const;
+
 export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
   const t = useTranslations("CafeteriaPage");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [openDialogId, setOpenDialogId] = useState<string | null>(null);
+  const [excludedAllergies, setExcludedAllergies] = useState<string[]>([]);
 
-  const filteredLocations = cafeterias.filter((location) =>
-    location.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredCafeterias = useMemo(() => {
+    return cafeterias
+      .filter((location) =>
+        location.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+      .map((cafeteria) => {
+        // Filter menus that don't contain any excluded allergies
+        const filteredMenus = cafeteria.menus.filter((menu) => {
+          // Check if any food in the menu contains excluded allergies
+          const hasExcludedAllergies = menu.foodDetails.some((food) =>
+            food.allergies.some((allergy) =>
+              excludedAllergies.includes(allergy)
+            )
+          );
+          return !hasExcludedAllergies;
+        });
+
+        return {
+          ...cafeteria,
+          menus: filteredMenus,
+        };
+      })
+      .filter((cafeteria) => cafeteria.menus.length > 0);
+  }, [cafeterias, searchQuery, excludedAllergies]);
 
   const formatWorkingTime = (time: string) => {
     const date = new Date(time);
@@ -66,6 +108,14 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
       minute: "2-digit",
       hour12: true,
     });
+  };
+
+  const handleAllergyChange = (allergy: string) => {
+    setExcludedAllergies((prev) =>
+      prev.includes(allergy)
+        ? prev.filter((a) => a !== allergy)
+        : [...prev, allergy]
+    );
   };
 
   return (
@@ -85,7 +135,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
               </button>
 
               {(() => {
-                const location = cafeterias.find(
+                const location = filteredCafeterias.find(
                   (l) => l.cafeteriaId === selectedLocation
                 );
                 if (!location) return null;
@@ -268,54 +318,153 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredLocations.map((location) => (
-                  <Card
-                    key={location.cafeteriaId}
-                    className="overflow-hidden hover:shadow-xl transition-all border-amber-200"
-                  >
-                    <div className="h-48 bg-amber-100 relative">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-6xl">🍽️</div>
-                      </div>
-                      <div className="absolute top-4 right-4 bg-white/90 text-amber-900 font-bold text-sm px-2 py-1 rounded-lg flex items-center">
-                        <span className="text-amber-500 mr-1">🕒</span>
-                        <span>{formatWorkingTime(location.workingTime)}</span>
-                      </div>
-                      <div className="absolute bottom-4 left-4 bg-amber-900/80 text-white text-xs px-2 py-1 rounded-lg">
-                        {location.city}
-                      </div>
-                    </div>
-
-                    <div className="p-5">
-                      <h3 className="font-bold text-xl mb-2 text-amber-900">
-                        {location.name}
-                      </h3>
-                      <p className="text-amber-800 text-sm mb-4">
-                        {location.address} {location.streetNumber}
-                      </p>
-
-                      <div className="flex justify-between items-center">
-                        <div className="flex items-center text-sm">
-                          <span className="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">
-                            {location.menus.length} {t("menusAvailable")}
-                          </span>
-                        </div>
-                        <Button
+              <div className="mb-8">
+                <div className="bg-white p-4 rounded-lg border border-amber-200 shadow-sm">
+                  <div className="flex flex-wrap gap-4 items-center">
+                    <div className="flex items-center gap-2">
+                      <span className="text-amber-900 font-medium">
+                        Filter by allergies:
+                      </span>
+                      {excludedAllergies.length > 0 && (
+                        <Badge
                           variant="outline"
-                          size="sm"
-                          className="rounded-full border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white"
-                          onClick={() =>
-                            setSelectedLocation(location.cafeteriaId)
-                          }
+                          className="bg-amber-50 text-amber-700"
                         >
-                          {t("viewDetails")}
-                        </Button>
-                      </div>
+                          {excludedAllergies.length}{" "}
+                          {excludedAllergies.length === 1
+                            ? "allergy"
+                            : "allergies"}{" "}
+                          excluded
+                        </Badge>
+                      )}
                     </div>
-                  </Card>
-                ))}
+                    <Select onValueChange={handleAllergyChange} value="">
+                      <SelectTrigger
+                        className={`w-[200px] ${
+                          excludedAllergies.length > 0 ? "border-amber-500" : ""
+                        }`}
+                      >
+                        <SelectValue placeholder="Select allergy to exclude" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {ALL_ALLERGIES.map((allergy) => (
+                          <SelectItem
+                            key={allergy}
+                            value={allergy}
+                            disabled={excludedAllergies.includes(allergy)}
+                          >
+                            {allergy}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {excludedAllergies.length > 0 && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setExcludedAllergies([])}
+                        className="text-amber-700 hover:text-amber-900 hover:bg-amber-50"
+                      >
+                        Clear all filters
+                      </Button>
+                    )}
+                  </div>
+                  {excludedAllergies.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-amber-100">
+                      {excludedAllergies.map((allergy) => (
+                        <Badge
+                          key={allergy}
+                          variant="secondary"
+                          className="bg-red-100 text-red-800 hover:bg-red-200 flex items-center gap-1"
+                        >
+                          {allergy}
+                          <button
+                            onClick={() => handleAllergyChange(allergy)}
+                            className="hover:text-red-900"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
+
+              {filteredCafeterias.length === 0 ? (
+                <div className="text-center py-12 bg-white rounded-lg border border-amber-200">
+                  <p className="text-amber-900 text-lg">
+                    {excludedAllergies.length > 0 ? (
+                      <>
+                        No cafeterias found matching your allergy filters.
+                        <br />
+                        <Button
+                          variant="link"
+                          onClick={() => setExcludedAllergies([])}
+                          className="text-amber-700 hover:text-amber-900 mt-2"
+                        >
+                          Clear all filters
+                        </Button>
+                      </>
+                    ) : (
+                      "No cafeterias found matching your search"
+                    )}
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredCafeterias.map((location) => (
+                    <Card
+                      key={location.cafeteriaId}
+                      className={`overflow-hidden hover:shadow-xl transition-all border-amber-200 ${
+                        excludedAllergies.length > 0
+                          ? "ring-1 ring-amber-500"
+                          : ""
+                      }`}
+                    >
+                      <div className="h-48 bg-amber-100 relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-6xl">🍽️</div>
+                        </div>
+                        <div className="absolute top-4 right-4 bg-white/90 text-amber-900 font-bold text-sm px-2 py-1 rounded-lg flex items-center">
+                          <span className="text-amber-500 mr-1">🕒</span>
+                          <span>{formatWorkingTime(location.workingTime)}</span>
+                        </div>
+                        <div className="absolute bottom-4 left-4 bg-amber-900/80 text-white text-xs px-2 py-1 rounded-lg">
+                          {location.city}
+                        </div>
+                      </div>
+
+                      <div className="p-5">
+                        <h3 className="font-bold text-xl mb-2 text-amber-900">
+                          {location.name}
+                        </h3>
+                        <p className="text-amber-800 text-sm mb-4">
+                          {location.address} {location.streetNumber}
+                        </p>
+
+                        <div className="flex justify-between items-center">
+                          <div className="flex items-center text-sm">
+                            <span className="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">
+                              {location.menus.length} {t("menusAvailable")}
+                            </span>
+                          </div>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="rounded-full border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white"
+                            onClick={() =>
+                              setSelectedLocation(location.cafeteriaId)
+                            }
+                          >
+                            {t("viewDetails")}
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

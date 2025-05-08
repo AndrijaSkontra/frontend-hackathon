@@ -57,6 +57,8 @@ export default async function page() {
     });
   }
 
+  console.log(JSON.stringify(cafeteriasWithMenus, null, 2));
+
   return (
     <div>
       <CafeteriaPage cafeterias={cafeteriasWithMenus} />

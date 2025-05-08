@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import CafeteriaPage from "./clientPage";
 import { Session } from "next-auth";
+import { redirect } from "@/i18n/navigation";
 
 interface ExtendedSession extends Session {
   user: {
@@ -8,10 +9,15 @@ interface ExtendedSession extends Session {
   } & Session["user"];
 }
 
-export default async function page() {
+export default async function page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const session = (await auth()) as ExtendedSession;
+  const { locale } = await params;
   if (!session?.user?.accessToken) {
-    throw new Error("Unauthorized");
+    redirect({ href: "/login", locale: locale });
   }
 
   const cafeteriaRes = await fetch(

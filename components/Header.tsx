@@ -5,12 +5,9 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { UserAvatar } from "./UserAvatar";
 
-interface HeaderProps {
-  isLoggedIn?: boolean;
-}
-
-export function Header({ isLoggedIn = false }: HeaderProps) {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
@@ -76,15 +73,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
         </nav>
 
         <div>
-          {isLoggedIn ? (
-            <Button variant="default" className="rounded-full px-6">
-              Dashboard
-            </Button>
-          ) : (
-            <Button variant="default" className="rounded-full px-6">
-              Login
-            </Button>
-          )}
+          <UserAvatar />
         </div>
       </div>
     </header>

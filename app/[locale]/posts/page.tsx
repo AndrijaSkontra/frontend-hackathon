@@ -2,13 +2,48 @@
 
 import { Header } from "@/components/Header";
 import { useState, useEffect } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Plus } from "lucide-react";
+
+// Define types for different post categories
+type JobPost = {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  salary: string;
+  posted: string;
+  type: string;
+  category: "jobs";
+};
+
+type MarketplacePost = {
+  id: string;
+  title: string;
+  price: string;
+  condition: string;
+  seller: string;
+  location: string;
+  posted: string;
+  category: "marketplace";
+};
+
+type EventPost = {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  organizer: string;
+  attendees: number;
+  category: "events";
+};
+
+type Post = JobPost | MarketplacePost | EventPost;
 
 // Sample data for different posting types
-const JOB_POSTS = [
+const JOB_POSTS: JobPost[] = [
   {
     id: "j1",
     title: "Teaching Assistant - Computer Science",
@@ -16,9 +51,8 @@ const JOB_POSTS = [
     location: "On Campus",
     salary: "$18-22/hr",
     posted: "2 days ago",
-    deadline: "Application closes May 10",
     type: "Part-time",
-    image: "/job1.jpg"
+    category: "jobs"
   },
   {
     id: "j2",
@@ -27,9 +61,8 @@ const JOB_POSTS = [
     location: "Science Building",
     salary: "$20-25/hr",
     posted: "1 week ago",
-    deadline: "Open until filled",
     type: "Part-time",
-    image: "/job2.jpg"
+    category: "jobs"
   },
   {
     id: "j3",
@@ -38,9 +71,8 @@ const JOB_POSTS = [
     location: "Various Campus Locations",
     salary: "$15-17/hr",
     posted: "3 days ago", 
-    deadline: "Applications due May 15",
     type: "Flexible hours",
-    image: "/job3.jpg"
+    category: "jobs"
   },
   {
     id: "j4",
@@ -49,35 +81,12 @@ const JOB_POSTS = [
     location: "Main Library",
     salary: "$16-19/hr",
     posted: "Just now",
-    deadline: "Hiring immediately",
     type: "Part-time",
-    image: "/job4.jpg"
-  },
-  {
-    id: "j5",
-    title: "Marketing Intern",
-    company: "University Marketing",
-    location: "Admin Building",
-    salary: "$17-20/hr",
-    posted: "5 days ago",
-    deadline: "Interview process starting soon",
-    type: "Internship",
-    image: "/job5.jpg"
-  },
-  {
-    id: "j6",
-    title: "IT Help Desk Support",
-    company: "University IT Department",
-    location: "Tech Building",
-    salary: "$19-23/hr",
-    posted: "1 day ago",
-    deadline: "Positions filling quickly",
-    type: "Part-time",
-    image: "/job6.jpg"
+    category: "jobs"
   }
 ];
 
-const MARKETPLACE_POSTS = [
+const MARKETPLACE_POSTS: MarketplacePost[] = [
   {
     id: "m1",
     title: "Textbooks for Sale - Computer Science 101",
@@ -86,7 +95,7 @@ const MARKETPLACE_POSTS = [
     seller: "Alex J.",
     location: "North Dorms",
     posted: "Just now",
-    image: "/marketplace1.jpg"
+    category: "marketplace"
   },
   {
     id: "m2",
@@ -96,7 +105,7 @@ const MARKETPLACE_POSTS = [
     seller: "Taylor S.",
     location: "West Campus Apts",
     posted: "2 hours ago",
-    image: "/marketplace2.jpg"
+    category: "marketplace"
   },
   {
     id: "m3",
@@ -106,7 +115,7 @@ const MARKETPLACE_POSTS = [
     seller: "Jamie L.",
     location: "South Dorms",
     posted: "Yesterday",
-    image: "/marketplace3.jpg"
+    category: "marketplace"
   },
   {
     id: "m4",
@@ -116,31 +125,11 @@ const MARKETPLACE_POSTS = [
     seller: "Casey M.",
     location: "Library Area",
     posted: "3 days ago",
-    image: "/marketplace4.jpg"
-  },
-  {
-    id: "m5",
-    title: "Dorm Room Desk Chair",
-    price: "$40",
-    condition: "Good",
-    seller: "Jordan P.",
-    location: "East Campus",
-    posted: "5 days ago",
-    image: "/marketplace5.jpg"
-  },
-  {
-    id: "m6",
-    title: "Bluetooth Speakers",
-    price: "$35",
-    condition: "Excellent",
-    seller: "Riley T.",
-    location: "Student Center",
-    posted: "1 week ago",
-    image: "/marketplace6.jpg"
+    category: "marketplace"
   }
 ];
 
-const EVENT_POSTS = [
+const EVENT_POSTS: EventPost[] = [
   {
     id: "e1",
     title: "Spring Concert Series",
@@ -149,8 +138,7 @@ const EVENT_POSTS = [
     location: "Main Quad",
     organizer: "Student Activities Board",
     attendees: 124,
-    category: "Entertainment",
-    image: "/event1.jpg"
+    category: "events"
   },
   {
     id: "e2",
@@ -160,8 +148,7 @@ const EVENT_POSTS = [
     location: "Student Union Ballroom",
     organizer: "Career Center",
     attendees: 285,
-    category: "Career",
-    image: "/event2.jpg"
+    category: "events"
   },
   {
     id: "e3",
@@ -171,8 +158,7 @@ const EVENT_POSTS = [
     location: "Campus Recreation Center",
     organizer: "Student Government",
     attendees: 210,
-    category: "Social",
-    image: "/event3.jpg"
+    category: "events"
   },
   {
     id: "e4",
@@ -182,37 +168,20 @@ const EVENT_POSTS = [
     location: "Health Center",
     organizer: "Campus Health Services",
     attendees: 45,
-    category: "Health",
-    image: "/event4.jpg"
-  },
-  {
-    id: "e5",
-    title: "International Food Festival",
-    date: "May 25, 2024",
-    time: "5:00 PM - 9:00 PM",
-    location: "Dining Commons",
-    organizer: "International Student Association",
-    attendees: 350,
-    category: "Cultural",
-    image: "/event5.jpg"
-  },
-  {
-    id: "e6",
-    title: "Study Group - Finals Prep",
-    date: "May 28-30, 2024",
-    time: "6:00 PM - 10:00 PM",
-    location: "Library Study Rooms",
-    organizer: "Academic Success Center",
-    attendees: 78,
-    category: "Academic",
-    image: "/event6.jpg"
+    category: "events"
   }
+];
+
+// Combine all posts into one array
+const ALL_POSTS: Post[] = [
+  ...JOB_POSTS,
+  ...MARKETPLACE_POSTS,
+  ...EVENT_POSTS
 ];
 
 export default function PostsPage() {
   const [mounted, setMounted] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState<"all" | "jobs" | "marketplace" | "events">("all");
   
   useEffect(() => {
     setMounted(true);
@@ -222,298 +191,138 @@ export default function PostsPage() {
     return <div>Loading...</div>;
   }
 
+  // Filter posts based on active category
+  const filteredPosts = activeCategory === "all" 
+    ? ALL_POSTS 
+    : ALL_POSTS.filter(post => post.category === activeCategory);
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-amber-50">
       <Header />
       
       <main className="flex-1 pt-24">
-        <div className="container mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row items-start gap-8">
-            {/* Sidebar */}
-            <div className="w-full md:w-1/4 bg-white rounded-xl shadow-sm p-6 sticky top-24">
-              <h2 className="text-xl font-bold mb-4">Campus Marketplace</h2>
-              <div className="mb-6">
-                <Input 
-                  type="search" 
-                  placeholder="Search postings..." 
-                  className="rounded-full" 
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <button 
-                  onClick={() => setActiveCategory("all")}
-                  className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "all" ? "bg-black text-white" : "hover:bg-gray-100"}`}
-                >
-                  All Categories
-                </button>
-                <button 
-                  onClick={() => setActiveCategory("jobs")}
-                  className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "jobs" ? "bg-black text-white" : "hover:bg-gray-100"}`}
-                >
-                  Jobs
-                </button>
-                <button 
-                  onClick={() => setActiveCategory("marketplace")}
-                  className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "marketplace" ? "bg-black text-white" : "hover:bg-gray-100"}`}
-                >
-                  Marketplace
-                </button>
-                <button 
-                  onClick={() => setActiveCategory("events")}
-                  className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "events" ? "bg-black text-white" : "hover:bg-gray-100"}`}
-                >
-                  Events
-                </button>
-              </div>
-              
-              <div className="mt-10">
-                <Button className="w-full rounded-full bg-black hover:bg-black/80">
-                  Create New Posting
-                </Button>
-              </div>
-            </div>
+        <div className="max-w-5xl mx-auto px-4 py-8">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold mb-6">Campus Posts</h1>
             
-            {/* Main Content */}
-            <div className="w-full md:w-3/4">
-              <Tabs defaultValue="all" className="w-full">
-                <TabsList className="mb-6 bg-transparent w-full flex justify-between border-b">
-                  <div className="flex space-x-6">
-                    <TabsTrigger 
-                      value="all" 
-                      className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
-                    >
-                      All Postings
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="jobs" 
-                      className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
-                    >
-                      Jobs
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="marketplace" 
-                      className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
-                    >
-                      Marketplace
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="events" 
-                      className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
-                    >
-                      Events
-                    </TabsTrigger>
-                  </div>
-                  <div>
-                    <select className="bg-gray-100 rounded-lg px-3 py-2 text-sm">
-                      <option>Sort by: Newest</option>
-                      <option>Sort by: Oldest</option>
-                      <option>Sort by: Popular</option>
-                    </select>
-                  </div>
-                </TabsList>
-                
-                {/* All Postings Tab */}
-                <TabsContent value="all" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Jobs */}
-                    {JOB_POSTS.slice(0, 2).map(job => (
-                      <Card key={job.id} className="overflow-hidden hover:shadow-lg transition-all">
-                        <div className="bg-blue-50 p-3 border-b flex justify-between items-center">
-                          <div className="bg-blue-100 text-blue-800 font-medium text-xs px-2 py-1 rounded-full">
-                            JOB
-                          </div>
-                          <span className="text-xs text-gray-500">{job.posted}</span>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-lg">{job.title}</h3>
-                          <p className="text-gray-600 text-sm mb-2">{job.company}</p>
-                          <div className="flex items-center text-sm text-gray-500 mb-3">
-                            <span className="mr-3">📍 {job.location}</span>
-                            <span>💰 {job.salary}</span>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs bg-blue-50 text-blue-800 px-2 py-1 rounded-full">
-                              {job.type}
-                            </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
-                              Apply Now
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                    
-                    {/* Marketplace */}
-                    {MARKETPLACE_POSTS.slice(0, 2).map(item => (
-                      <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-all">
-                        <div className="relative h-40">
-                          <div className="absolute top-3 left-3 bg-green-100 text-green-800 font-medium text-xs px-2 py-1 rounded-full">
-                            MARKETPLACE
-                          </div>
-                          <div className="absolute top-3 right-3 bg-white/90 text-black font-bold text-sm px-2 py-1 rounded-lg">
-                            {item.price}
-                          </div>
-                          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                            <div className="text-4xl">📚</div>
-                          </div>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-lg">{item.title}</h3>
-                          <p className="text-sm text-gray-600 mb-2">Condition: {item.condition}</p>
-                          <div className="flex items-center text-sm text-gray-500">
-                            <span className="mr-3">👤 {item.seller}</span>
-                            <span>📍 {item.location}</span>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs text-gray-500">{item.posted}</span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
-                              Message Seller
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                    
-                    {/* Events */}
-                    {EVENT_POSTS.slice(0, 2).map(event => (
-                      <Card key={event.id} className="overflow-hidden hover:shadow-lg transition-all">
-                        <div className="bg-purple-50 p-3 border-b flex justify-between items-center">
-                          <div className="bg-purple-100 text-purple-800 font-medium text-xs px-2 py-1 rounded-full">
-                            EVENT
-                          </div>
-                          <div className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">
-                            {event.category}
-                          </div>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-lg">{event.title}</h3>
-                          <div className="flex items-center text-sm text-gray-500 mb-2">
-                            <span className="mr-3">📅 {event.date}</span>
-                            <span>⏰ {event.time}</span>
-                          </div>
-                          <p className="text-sm text-gray-600 mb-2">📍 {event.location}</p>
-                          <p className="text-xs text-gray-500">By {event.organizer}</p>
-                          <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs bg-purple-50 text-purple-800 px-2 py-1 rounded-full">
-                              {event.attendees} attending
-                            </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
-                              I'm Interested
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
-                </TabsContent>
-                
-                {/* Jobs Tab */}
-                <TabsContent value="jobs" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {JOB_POSTS.map(job => (
-                      <Card key={job.id} className="overflow-hidden hover:shadow-lg transition-all">
-                        <div className="bg-blue-50 p-3 border-b flex justify-between items-center">
-                          <div className="bg-blue-100 text-blue-800 font-medium text-xs px-2 py-1 rounded-full">
-                            JOB
-                          </div>
-                          <span className="text-xs text-gray-500">{job.posted}</span>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-lg">{job.title}</h3>
-                          <p className="text-gray-600 text-sm mb-2">{job.company}</p>
-                          <div className="flex items-center text-sm text-gray-500 mb-3">
-                            <span className="mr-3">📍 {job.location}</span>
-                            <span>💰 {job.salary}</span>
-                          </div>
-                          <p className="text-xs text-gray-500 mb-3">{job.deadline}</p>
-                          <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs bg-blue-50 text-blue-800 px-2 py-1 rounded-full">
-                              {job.type}
-                            </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
-                              Apply Now
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
-                </TabsContent>
-                
-                {/* Marketplace Tab */}
-                <TabsContent value="marketplace" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {MARKETPLACE_POSTS.map(item => (
-                      <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-all">
-                        <div className="relative h-40">
-                          <div className="absolute top-3 left-3 bg-green-100 text-green-800 font-medium text-xs px-2 py-1 rounded-full">
-                            MARKETPLACE
-                          </div>
-                          <div className="absolute top-3 right-3 bg-white/90 text-black font-bold text-sm px-2 py-1 rounded-lg">
-                            {item.price}
-                          </div>
-                          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                            <div className="text-4xl">📚</div>
-                          </div>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-lg">{item.title}</h3>
-                          <p className="text-sm text-gray-600 mb-2">Condition: {item.condition}</p>
-                          <div className="flex items-center text-sm text-gray-500">
-                            <span className="mr-3">👤 {item.seller}</span>
-                            <span>📍 {item.location}</span>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs text-gray-500">{item.posted}</span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
-                              Message Seller
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
-                </TabsContent>
-                
-                {/* Events Tab */}
-                <TabsContent value="events" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {EVENT_POSTS.map(event => (
-                      <Card key={event.id} className="overflow-hidden hover:shadow-lg transition-all">
-                        <div className="bg-purple-50 p-3 border-b flex justify-between items-center">
-                          <div className="bg-purple-100 text-purple-800 font-medium text-xs px-2 py-1 rounded-full">
-                            EVENT
-                          </div>
-                          <div className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">
-                            {event.category}
-                          </div>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-lg">{event.title}</h3>
-                          <div className="flex items-center text-sm text-gray-500 mb-2">
-                            <span className="mr-3">📅 {event.date}</span>
-                            <span>⏰ {event.time}</span>
-                          </div>
-                          <p className="text-sm text-gray-600 mb-2">📍 {event.location}</p>
-                          <p className="text-xs text-gray-500">By {event.organizer}</p>
-                          <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs bg-purple-50 text-purple-800 px-2 py-1 rounded-full">
-                              {event.attendees} attending
-                            </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
-                              I'm Interested
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
-                </TabsContent>
-              </Tabs>
+            {/* Category buttons */}
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <Button 
+                variant={activeCategory === "all" ? "default" : "outline"}
+                className={`rounded-full px-6 ${activeCategory === "all" ? "bg-amber-500 hover:bg-amber-600" : "border-amber-500 text-amber-700 hover:bg-amber-100"}`}
+                onClick={() => setActiveCategory("all")}
+              >
+                All
+              </Button>
+              <Button 
+                variant={activeCategory === "marketplace" ? "default" : "outline"}
+                className={`rounded-full px-6 ${activeCategory === "marketplace" ? "bg-amber-500 hover:bg-amber-600" : "border-amber-500 text-amber-700 hover:bg-amber-100"}`}
+                onClick={() => setActiveCategory("marketplace")}
+              >
+                Marketplace
+              </Button>
+              <Button 
+                variant={activeCategory === "jobs" ? "default" : "outline"}
+                className={`rounded-full px-6 ${activeCategory === "jobs" ? "bg-amber-500 hover:bg-amber-600" : "border-amber-500 text-amber-700 hover:bg-amber-100"}`}
+                onClick={() => setActiveCategory("jobs")}
+              >
+                Jobs
+              </Button>
+              <Button 
+                variant={activeCategory === "events" ? "default" : "outline"}
+                className={`rounded-full px-6 ${activeCategory === "events" ? "bg-amber-500 hover:bg-amber-600" : "border-amber-500 text-amber-700 hover:bg-amber-100"}`}
+                onClick={() => setActiveCategory("events")}
+              >
+                Events
+              </Button>
+              <Button 
+                variant="default"
+                className="rounded-full px-6 bg-black hover:bg-gray-800"
+                onClick={() => alert("Add new post clicked")}
+              >
+                <Plus className="w-4 h-4 mr-2" /> Add New
+              </Button>
             </div>
+          </div>
+          
+          {/* Posts grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPosts.map(post => {
+              // Render different card layouts based on post category
+              if (post.category === "jobs") {
+                const jobPost = post as JobPost;
+                return (
+                  <Card key={jobPost.id} className="overflow-hidden hover:shadow-lg transition-all bg-white">
+                    <div className="p-5">
+                      <div className="flex justify-between items-start">
+                        <h3 className="font-bold text-lg">{jobPost.title}</h3>
+                        <span className="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">
+                          {jobPost.type}
+                        </span>
+                      </div>
+                      <p className="text-gray-600 mt-2">{jobPost.company}</p>
+                      <div className="flex items-center mt-2 text-sm text-gray-500">
+                        <span className="mr-3">📍 {jobPost.location}</span>
+                        <span>{jobPost.salary}</span>
+                      </div>
+                      <div className="mt-4 pt-4 border-t flex justify-between items-center">
+                        <span className="text-xs text-gray-500">Posted {jobPost.posted}</span>
+                        <Button variant="outline" size="sm" className="text-amber-600 border-amber-300 hover:bg-amber-50">
+                          Apply
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                );
+              } else if (post.category === "marketplace") {
+                const marketPost = post as MarketplacePost;
+                return (
+                  <Card key={marketPost.id} className="overflow-hidden hover:shadow-lg transition-all bg-white">
+                    <div className="p-5">
+                      <div className="flex justify-between items-start">
+                        <h3 className="font-bold text-lg">{marketPost.title}</h3>
+                        <span className="font-bold text-amber-600">{marketPost.price}</span>
+                      </div>
+                      <p className="text-gray-600 mt-1 text-sm">Condition: {marketPost.condition}</p>
+                      <div className="flex items-center mt-2 text-sm text-gray-500">
+                        <span className="mr-3">📍 {marketPost.location}</span>
+                        <span>👤 {marketPost.seller}</span>
+                      </div>
+                      <div className="mt-4 pt-4 border-t flex justify-between items-center">
+                        <span className="text-xs text-gray-500">Posted {marketPost.posted}</span>
+                        <Button variant="outline" size="sm" className="text-amber-600 border-amber-300 hover:bg-amber-50">
+                          Contact
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                );
+              } else if (post.category === "events") {
+                const eventPost = post as EventPost;
+                return (
+                  <Card key={eventPost.id} className="overflow-hidden hover:shadow-lg transition-all bg-white">
+                    <div className="p-5">
+                      <h3 className="font-bold text-lg">{eventPost.title}</h3>
+                      <div className="flex items-center mt-2 text-sm">
+                        <span className="mr-3">📅 {eventPost.date}</span>
+                        <span>⏰ {eventPost.time}</span>
+                      </div>
+                      <p className="text-gray-600 mt-2 text-sm">📍 {eventPost.location}</p>
+                      <p className="text-gray-500 mt-1 text-sm">By {eventPost.organizer}</p>
+                      <div className="mt-4 pt-4 border-t flex justify-between items-center">
+                        <span className="text-xs bg-amber-100 px-2 py-1 rounded-full text-amber-800">
+                          {eventPost.attendees} attending
+                        </span>
+                        <Button variant="outline" size="sm" className="text-amber-600 border-amber-300 hover:bg-amber-50">
+                          Join
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                );
+              }
+              return null;
+            })}
           </div>
         </div>
       </main>

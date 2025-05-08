@@ -32,6 +32,12 @@ interface Menu {
   menuType: "BREAKFAST" | "LUNCH" | "DINNER";
   date: string;
   foodIds: string[];
+  foodDetails: {
+    id: string;
+    name: string;
+    allergies: string[];
+    foodType: string;
+  }[];
 }
 
 interface CafeteriaWithMenu extends Cafeteria {
@@ -159,7 +165,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                           onOpenChange={(open) => {
                                             if (open) {
                                               console.log(
-                                                `Opening menu dialog for: ${menu.foodIds}`
+                                                `Opening menu dialog for: ${menu.foodDetails}`
                                               );
                                             }
                                           }}
@@ -191,33 +197,31 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                               </DialogDescription>
                                             </DialogHeader>
                                             <div className="grid gap-4 py-4">
-                                              <div className="space-y-2">
-                                                <h4 className="font-medium text-amber-900">
-                                                  {t("mainCourse")}
-                                                </h4>
-                                                <p className="text-sm text-amber-600">
-                                                  Grilled Chicken with Seasonal
-                                                  Vegetables
-                                                </p>
-                                              </div>
-                                              <div className="space-y-2">
-                                                <h4 className="font-medium text-amber-900">
-                                                  {t("sideDishes")}
-                                                </h4>
-                                                <ul className="text-sm text-amber-600">
-                                                  <li>Roasted Potatoes</li>
-                                                  <li>Garden Salad</li>
-                                                  <li>Fresh Bread</li>
-                                                </ul>
-                                              </div>
-                                              <div className="space-y-2">
-                                                <h4 className="font-medium text-amber-900">
-                                                  {t("dessert")}
-                                                </h4>
-                                                <p className="text-sm text-amber-600">
-                                                  Chocolate Pudding
-                                                </p>
-                                              </div>
+                                              {menu.foodDetails.map((food) => (
+                                                <div
+                                                  key={food.id}
+                                                  className="space-y-2"
+                                                >
+                                                  <h4 className="font-medium text-amber-900">
+                                                    {food.name}
+                                                  </h4>
+                                                  <div className="flex flex-wrap gap-2">
+                                                    <span className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full">
+                                                      {food.foodType}
+                                                    </span>
+                                                    {food.allergies.map(
+                                                      (allergy) => (
+                                                        <span
+                                                          key={allergy}
+                                                          className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full"
+                                                        >
+                                                          {allergy}
+                                                        </span>
+                                                      )
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              ))}
                                             </div>
                                             <DialogFooter>
                                               <Button

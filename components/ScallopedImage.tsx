@@ -1,33 +1,46 @@
-"use client";
+"use client"
 
-import { cn } from "@/lib/utils";
-import { useId } from "react";
+import { cn } from "@/lib/utils"
+import { useId, useRef, useEffect, useState } from "react"
 
 interface ScallopedImageProps {
-  imageSrc: string;
-  className?: string;
-  height?: number;
+  imageSrc: string
+  className?: string
+  height?: number
 }
 
-export function ScallopedImage({
-  imageSrc,
-  className,
-  height = 300,
-}: ScallopedImageProps) {
+export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedImageProps) {
   // Generate a stable ID for the clip-path
-  const clipPathId = useId();
+  const clipPathId = useId()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerWidth, setContainerWidth] = useState(0)
+
+  // Update container width on mount and resize
+  useEffect(() => {
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth)
+      }
+    }
+
+    // Initial measurement
+    updateWidth()
+
+    // Set up resize listener
+    window.addEventListener("resize", updateWidth)
+
+    return () => {
+      window.removeEventListener("resize", updateWidth)
+    }
+  }, [])
 
   return (
-    <div className={cn("relative w-full overflow-hidden", className)}>
+    <div ref={containerRef} className={cn("relative w-full overflow-hidden", className)}>
       {/* Scalloped container with outline */}
       <div
-        className="w-screen max-w overflow-hidden bg-gradient-to-br from-white to-gray-100 shadow-xl"
+        className="w-full overflow-hidden bg-gradient-to-br from-white to-gray-100 shadow-xl"
         style={{
           clipPath: `url(#${clipPathId})`,
-          marginLeft: "calc(-50vw + 50%)",
-          marginRight: "calc(-50vw + 50%)",
-          width: "100vw",
-          marginBottom: "-80px", // More overlap at the bottom
         }}
       >
         <img
@@ -37,41 +50,38 @@ export function ScallopedImage({
           style={{
             height: `${height}px`,
             objectPosition: "center 25%",
-            width: "100%",
           }}
         />
 
         {/* SVG definitions for clip path */}
         <svg width="0" height="0" className="absolute">
           <defs>
-            <clipPath id={clipPathId}>
+            <clipPath id={clipPathId} clipPathUnits="objectBoundingBox">
               <path
-                d="M0,10 
-                C50,30 100,10 150,40 
-                C200,70 250,30 300,20 
-                C350,10 400,60 450,40 
-                C500,20 550,10 600,30 
-                C650,50 700,10 750,30 
-                C800,50 850,20 900,40 
-                C950,60 1000,10 1050,30 
-                C1100,50 1150,20 1200,40 
-                L1200,500 
-                
-                C1150,480 1100,510 1050,490 
-                C1000,470 950,500 900,480 
-                C850,460 800,500 750,480 
-                C700,460 650,500 600,490 
-                C550,480 500,450 450,480 
-                C400,510 350,470 300,500 
-                C250,530 200,490 150,510 
-                C100,530 50,500 0,480 
-                
-                L0,10 Z"
+                d={`
+                  M0,0.02 
+                  C0.05,0.06 0.1,0.02 0.15,0.08 
+                  C0.2,0.14 0.25,0.06 0.3,0.04 
+                  C0.35,0.02 0.4,0.12 0.45,0.08 
+                  C0.5,0.04 0.55,0.02 0.6,0.06 
+                  C0.65,0.1 0.7,0.02 0.75,0.06 
+                  C0.8,0.1 0.85,0.04 0.9,0.08 
+                  C0.95,0.12 1,0.02 1,0.02 
+                  L1,0.98 
+                  C0.95,0.94 0.9,0.98 0.85,0.94 
+                  C0.8,0.9 0.75,0.98 0.7,0.94 
+                  C0.65,0.9 0.6,0.98 0.55,0.96 
+                  C0.5,0.94 0.45,0.9 0.4,0.94 
+                  C0.35,0.98 0.3,0.94 0.25,0.98 
+                  C0.2,1.02 0.15,0.96 0.1,0.98 
+                  C0.05,1 0,0.96 0,0.96 
+                  L0,0.02 Z
+                `}
               />
             </clipPath>
           </defs>
         </svg>
       </div>
     </div>
-  );
+  )
 }

@@ -75,7 +75,7 @@ export function HeroSection() {
           <ScallopedImage
             imageSrc="/student_dashboard.jpg"
             className="w-full"
-            height={290}
+            height={300}
           />
         </div>
       </div>

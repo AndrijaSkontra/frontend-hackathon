@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   isLoggedIn?: boolean;
@@ -12,7 +13,10 @@ interface HeaderProps {
 export function Header({ isLoggedIn = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [activeTab, setActiveTab] = useState("postings");
+  const pathname = usePathname();
+  
+  // Extract the locale from the pathname
+  const locale = pathname?.split('/')[1] || 'en';
 
   useEffect(() => {
     setMounted(true);
@@ -37,7 +41,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
     <header className={headerClasses}>
       <div className="container mx-auto flex items-center justify-between">
         <Link
-          href="/"
+          href={`/${locale}`}
           className="flex items-center text-2xl font-bold text-primary"
         >
           <span className="mr-2">🎓</span>
@@ -45,13 +49,30 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
         </Link>
 
         <nav className="absolute left-1/2 transform -translate-x-1/2 flex space-x-8">
-          <Link href="/posts" className="text-foreground hover:text-primary transition-colors font-medium">
-            Postings
+          <Link 
+            href={`/${locale}/posts`}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-full transition-colors font-medium",
+              pathname?.includes('/posts')
+                ? "bg-black/10 text-primary" 
+                : "text-foreground hover:text-primary"
+            )}
+          >
+            <span className="text-lg">📝</span>
+            <span>Postings</span>
           </Link>
-          <Link href="/cafeteria" className="text-foreground hover:text-primary transition-colors font-medium">
-            Cafeteria
+          <Link 
+            href={`/${locale}/cafeteria`}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-full transition-colors font-medium",
+              pathname?.includes('/cafeteria')
+                ? "bg-black/10 text-primary" 
+                : "text-foreground hover:text-primary"
+            )}
+          >
+            <span className="text-lg">🍽️</span>
+            <span>Cafeteria</span>
           </Link>
-          
         </nav>
 
         <div>

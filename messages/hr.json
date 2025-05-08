@@ -18,5 +18,23 @@
     "invalidCredentials": "Pogrešna lozinka",
     "passwordsDoNotMatch": "Lozinke se ne podudaraju",
     "registrationFailed": "Registracija nije uspjela. Račun već postoji."
+  },
+  "CafeteriaPage": {
+    "menu": "Meni",
+    "breakfast": "Dobro jutro",
+    "lunch": "Dobar dan",
+    "dinner": "Dobro večer",
+    "backToAll": "Povratak na sve menze",
+    "address": "Adresa",
+    "todaysMenu": "Današnji meni",
+    "mainCourse": "Glavno jelo",
+    "sideDishes": "Prilozi",
+    "dessert": "Desert",
+    "close": "Zatvori",
+    "campusDining": "Mogućnosti prehrane na kampusu",
+    "searchPlaceholder": "Pretraži menze...",
+    "menusAvailable": "Dostupnih menija",
+    "viewDetails": "Pogledaj detalje",
+    "menuDetails": "Detalji menija za"
   }
 }

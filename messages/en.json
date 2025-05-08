@@ -18,5 +18,23 @@
     "invalidCredentials": "Invalid credentials",
     "passwordsDoNotMatch": "Passwords do not match",
     "registrationFailed": "Registration failed. Account already exists."
+  },
+  "CafeteriaPage": {
+    "menu": "Menu",
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "backToAll": "Back to all cafeterias",
+    "address": "Address",
+    "todaysMenu": "Today's Menu",
+    "mainCourse": "Main Course",
+    "sideDishes": "Side Dishes",
+    "dessert": "Dessert",
+    "close": "Close",
+    "campusDining": "Campus Dining Options",
+    "searchPlaceholder": "Search cafeterias...",
+    "menusAvailable": "Menus Available",
+    "viewDetails": "View Details",
+    "menuDetails": "Menu details for"
   }
 }

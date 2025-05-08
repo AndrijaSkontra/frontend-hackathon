@@ -1,7 +1,7 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { useTranslations } from "next-intl";
 
 interface Cafeteria {
   cafeteriaId: string;
@@ -42,17 +43,9 @@ interface CafeteriaPageProps {
 }
 
 export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
-  const [mounted, setMounted] = useState(false);
+  const t = useTranslations("CafeteriaPage");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return <div>Loading...</div>;
-  }
 
   const filteredLocations = cafeterias.filter((location) =>
     location.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -80,7 +73,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                 onClick={() => setSelectedLocation(null)}
                 className="flex items-center text-amber-700 mb-6 hover:underline"
               >
-                <span>← Back to all cafeterias</span>
+                <span>← {t("backToAll")}</span>
               </button>
 
               {(() => {
@@ -111,7 +104,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                           <h3 className="font-medium mb-2 text-amber-900">
-                            Address
+                            {t("address")}
                           </h3>
                           <p className="text-amber-800">
                             {location.address} {location.streetNumber},{" "}
@@ -122,7 +115,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
 
                       <div className="mt-8">
                         <h2 className="text-2xl font-bold mb-6 text-amber-900">
-                          Today's Menu
+                          {t("todaysMenu")}
                         </h2>
 
                         <Tabs defaultValue="breakfast" className="w-full">
@@ -131,19 +124,19 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                               value="breakfast"
                               className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-amber-500 rounded-none text-amber-800"
                             >
-                              Breakfast
+                              {t("breakfast")}
                             </TabsTrigger>
                             <TabsTrigger
                               value="lunch"
                               className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-amber-500 rounded-none text-amber-800"
                             >
-                              Lunch
+                              {t("lunch")}
                             </TabsTrigger>
                             <TabsTrigger
                               value="dinner"
                               className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-amber-500 rounded-none text-amber-800"
                             >
-                              Dinner
+                              {t("dinner")}
                             </TabsTrigger>
                           </TabsList>
 
@@ -191,7 +184,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                                 {menu.name}
                                               </DialogTitle>
                                               <DialogDescription>
-                                                Menu details for{" "}
+                                                {t("menuDetails")}{" "}
                                                 {new Date(
                                                   menu.date
                                                 ).toLocaleDateString()}
@@ -200,7 +193,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                             <div className="grid gap-4 py-4">
                                               <div className="space-y-2">
                                                 <h4 className="font-medium text-amber-900">
-                                                  Main Course
+                                                  {t("mainCourse")}
                                                 </h4>
                                                 <p className="text-sm text-amber-600">
                                                   Grilled Chicken with Seasonal
@@ -209,7 +202,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                               </div>
                                               <div className="space-y-2">
                                                 <h4 className="font-medium text-amber-900">
-                                                  Side Dishes
+                                                  {t("sideDishes")}
                                                 </h4>
                                                 <ul className="text-sm text-amber-600">
                                                   <li>Roasted Potatoes</li>
@@ -219,7 +212,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                               </div>
                                               <div className="space-y-2">
                                                 <h4 className="font-medium text-amber-900">
-                                                  Dessert
+                                                  {t("dessert")}
                                                 </h4>
                                                 <p className="text-sm text-amber-600">
                                                   Chocolate Pudding
@@ -231,7 +224,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                                 variant="outline"
                                                 className="bg-amber-100 hover:bg-amber-200"
                                               >
-                                                Close
+                                                {t("close")}
                                               </Button>
                                             </DialogFooter>
                                           </DialogContent>
@@ -254,12 +247,12 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
             <div>
               <div className="flex flex-col md:flex-row items-center justify-between mb-10">
                 <h1 className="text-3xl font-bold mb-4 md:mb-0 text-amber-900">
-                  Campus Dining Options
+                  {t("campusDining")}
                 </h1>
                 <div className="w-full md:w-1/3">
                   <Input
                     type="search"
-                    placeholder="Search cafeterias..."
+                    placeholder={t("searchPlaceholder")}
                     className="rounded-full border-amber-200 focus:border-amber-500 focus:ring-amber-500"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -297,7 +290,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center text-sm">
                           <span className="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">
-                            {location.menus.length} Menus Available
+                            {location.menus.length} {t("menusAvailable")}
                           </span>
                         </div>
                         <Button
@@ -308,7 +301,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                             setSelectedLocation(location.cafeteriaId)
                           }
                         >
-                          View Details
+                          {t("viewDetails")}
                         </Button>
                       </div>
                     </div>

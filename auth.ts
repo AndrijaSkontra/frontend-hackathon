@@ -27,7 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               email: credentials.email,
               password: credentials.password,
             }),
-          }
+          },
         );
 
         if (res.status !== 200) {
@@ -43,7 +43,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               "Content-Type": "application/json",
               Authorization: `Bearer ${resp.accessToken}`,
             },
-          }
+          },
         );
 
         if (userData.status !== 200) {

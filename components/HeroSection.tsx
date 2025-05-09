@@ -26,7 +26,13 @@ export function HeroSection() {
   return (
     <section
       className="relative overflow-hidden bg-gradient-to-br from-orange-300/70 via-orange-200/60 to-yellow-100/70"
-      style={{ paddingBottom: "50px" } as React.CSSProperties}
+      style={
+        {
+          paddingBottom: "50px",
+          overscrollBehavior: "none",
+          touchAction: "pan-x",
+        } as React.CSSProperties
+      }
     >
       {/* Decorative shapes - now using fixed values */}
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
@@ -71,11 +77,11 @@ export function HeroSection() {
         </div>
 
         {/* Full width scalloped image */}
-        <div className="w-full px-0 -mb-16 ">
+        <div className="w-full px-0 -mb-16">
           <ScallopedImage
-            imageSrc="/student_dashboard.jpg"
+            imageSrc="/students.jpg"
             className="w-full"
-            height={300}
+            height={350}
           />
         </div>
       </div>

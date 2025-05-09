@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { toast } from "sonner";
+import { useLocale } from "next-intl";
 
 type User = {
   id: string;
@@ -17,11 +24,11 @@ type User = {
   profileImage?: string;
 };
 
-export default function ProfilePage({ params }: { params: { locale: string } }) {
+export default function ProfilePage({}: {}) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-  const { locale } = params;
+  const locale = useLocale();
 
   useEffect(() => {
     // Check for user session
@@ -30,7 +37,7 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
       try {
         // For demo purposes, we're checking localStorage
         // In a real app, you would fetch the user session from your API
-        const storedUser = localStorage.getItem('user');
+        const storedUser = localStorage.getItem("user");
         if (storedUser) {
           setUser(JSON.parse(storedUser));
         } else {
@@ -44,7 +51,7 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
         setIsLoading(false);
       }
     };
-    
+
     checkUserSession();
   }, [locale, router]);
 
@@ -53,9 +60,9 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
     if (!user) return "";
     return `${user.firstName[0]}${user.lastName[0]}`;
   };
-  
+
   const handleSignOut = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     toast.success("You have been signed out");
     router.push(`/${locale}`);
   };
@@ -90,7 +97,7 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-1 pt-24 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row gap-8">
@@ -99,44 +106,49 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
               <div className="bg-white rounded-xl shadow-sm p-6 sticky top-24">
                 <div className="flex flex-col items-center text-center mb-6">
                   <Avatar className="h-24 w-24 mb-4">
-                    <AvatarImage src={user.profileImage} alt={`${user.firstName} ${user.lastName}`} />
+                    <AvatarImage
+                      src={user.profileImage}
+                      alt={`${user.firstName} ${user.lastName}`}
+                    />
                     <AvatarFallback className="bg-black text-white text-xl">
                       {getInitials()}
                     </AvatarFallback>
                   </Avatar>
-                  <h2 className="text-xl font-bold">{user.firstName} {user.lastName}</h2>
+                  <h2 className="text-xl font-bold">
+                    {user.firstName} {user.lastName}
+                  </h2>
                   <p className="text-gray-500 text-sm">{user.email}</p>
                 </div>
-                
+
                 <nav className="space-y-2 mb-6">
-                  <Link 
+                  <Link
                     href={`/${locale}/profile`}
                     className="w-full block px-4 py-2 rounded-lg bg-gray-100 font-medium"
                   >
                     Profile Overview
                   </Link>
-                  <Link 
+                  <Link
                     href={`/${locale}/profile/postings`}
                     className="w-full block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium"
                   >
                     My Postings
                   </Link>
-                  <Link 
+                  <Link
                     href={`/${locale}/profile/saved`}
                     className="w-full block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium"
                   >
                     Saved Items
                   </Link>
-                  <Link 
+                  <Link
                     href={`/${locale}/profile/settings`}
                     className="w-full block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium"
                   >
                     Settings
                   </Link>
                 </nav>
-                
-                <Button 
-                  variant="outline" 
+
+                <Button
+                  variant="outline"
                   className="w-full border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700"
                   onClick={handleSignOut}
                 >
@@ -144,46 +156,60 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
                 </Button>
               </div>
             </div>
-            
+
             {/* Main content */}
             <div className="flex-1">
               <h1 className="text-3xl font-bold mb-6">Profile Overview</h1>
-              
+
               <div className="space-y-6">
                 <Card>
                   <CardHeader>
                     <CardTitle>Personal Information</CardTitle>
-                    <CardDescription>Your basic profile information</CardDescription>
+                    <CardDescription>
+                      Your basic profile information
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <dt className="text-sm font-medium text-gray-500">First Name</dt>
+                        <dt className="text-sm font-medium text-gray-500">
+                          First Name
+                        </dt>
                         <dd className="mt-1 text-lg">{user.firstName}</dd>
                       </div>
                       <div>
-                        <dt className="text-sm font-medium text-gray-500">Last Name</dt>
+                        <dt className="text-sm font-medium text-gray-500">
+                          Last Name
+                        </dt>
                         <dd className="mt-1 text-lg">{user.lastName}</dd>
                       </div>
                       <div>
-                        <dt className="text-sm font-medium text-gray-500">Email</dt>
+                        <dt className="text-sm font-medium text-gray-500">
+                          Email
+                        </dt>
                         <dd className="mt-1 text-lg">{user.email}</dd>
                       </div>
                       <div>
-                        <dt className="text-sm font-medium text-gray-500">User ID</dt>
+                        <dt className="text-sm font-medium text-gray-500">
+                          User ID
+                        </dt>
                         <dd className="mt-1 text-lg font-mono">{user.id}</dd>
                       </div>
                     </dl>
                   </CardContent>
                 </Card>
-                
+
                 <Card>
                   <CardHeader>
                     <CardTitle>Recent Activity</CardTitle>
-                    <CardDescription>Your recent interactions on the platform</CardDescription>
+                    <CardDescription>
+                      Your recent interactions on the platform
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-center py-12 text-gray-500">You have no recent activity yet</p>
+                    <p className="text-center py-12 text-gray-500">
+                      You have no recent activity yet
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -193,4 +219,4 @@ export default function ProfilePage({ params }: { params: { locale: string } }) 
       </main>
     </div>
   );
-} 
+}

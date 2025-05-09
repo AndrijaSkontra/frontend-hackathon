@@ -4,4 +4,4 @@ export default function CafeteriaLayout({
   children: React.ReactNode;
 }) {
   return <>{children}</>;
-} 
+}

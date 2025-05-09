@@ -85,9 +85,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
   const [activeDetailSection, setActiveDetailSection] =
     useState<DetailSection>("intro");
   const detailContainerRef = useRef<HTMLDivElement>(null);
-  const sectionRefs = useRef<
-    Record<DetailSection, React.RefObject<HTMLDivElement>>
-  >({
+  const sectionRefs = useRef({
     intro: useRef<HTMLDivElement>(null),
     menu: useRef<HTMLDivElement>(null),
   });
@@ -111,7 +109,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionType = entry.target.getAttribute(
-            "data-section",
+            "data-section"
           ) as DetailSection;
           if (sectionType) {
             setActiveDetailSection(sectionType);
@@ -134,7 +132,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
   const filteredCafeterias = useMemo(() => {
     return cafeterias
       .filter((location) =>
-        location.name.toLowerCase().includes(searchQuery.toLowerCase()),
+        location.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
       .map((cafeteria) => {
         // Filter menus that don't contain any excluded allergies
@@ -142,8 +140,8 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
           // Check if any food in the menu contains excluded allergies
           const hasExcludedAllergies = menu.foodDetails.some((food) =>
             food.allergies.some((allergy) =>
-              excludedAllergies.includes(allergy),
-            ),
+              excludedAllergies.includes(allergy)
+            )
           );
           return !hasExcludedAllergies;
         });
@@ -169,7 +167,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
     setExcludedAllergies((prev) =>
       prev.includes(allergy)
         ? prev.filter((a) => a !== allergy)
-        : [...prev, allergy],
+        : [...prev, allergy]
     );
   };
 
@@ -290,7 +288,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
             >
               {(() => {
                 const location = filteredCafeterias.find(
-                  (l) => l.cafeteriaId === selectedLocation,
+                  (l) => l.cafeteriaId === selectedLocation
                 );
                 if (!location) return null;
 
@@ -305,7 +303,6 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                       <div className="absolute inset-0 z-0">
                         <motion.div
                           className="absolute inset-0"
-                          variants={introBackgroundVariants}
                           initial="initial"
                           animate="animate"
                         >
@@ -506,7 +503,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                       {location.menus
                                         .filter(
-                                          (menu) => menu.menuType === mealType,
+                                          (menu) => menu.menuType === mealType
                                         )
                                         .map((menu) => (
                                           <Dialog
@@ -514,7 +511,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                             open={openDialogId === menu.id}
                                             onOpenChange={(open) =>
                                               setOpenDialogId(
-                                                open ? menu.id : null,
+                                                open ? menu.id : null
                                               )
                                             }
                                           >
@@ -530,12 +527,12 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                                       {mealType === "BREAKFAST"
                                                         ? "🍳"
                                                         : mealType === "LUNCH"
-                                                          ? "🍲"
-                                                          : "🍽️"}
+                                                        ? "🍲"
+                                                        : "🍽️"}
                                                     </span>
                                                     <div className="text-xs text-orange-600 font-medium">
                                                       {new Date(
-                                                        menu.date,
+                                                        menu.date
                                                       ).toLocaleDateString()}
                                                     </div>
                                                   </div>
@@ -568,7 +565,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                                 <DialogDescription>
                                                   {t("menuDetails")}{" "}
                                                   {new Date(
-                                                    menu.date,
+                                                    menu.date
                                                   ).toLocaleDateString()}
                                                 </DialogDescription>
                                               </DialogHeader>
@@ -594,11 +591,11 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                                             >
                                                               {allergy}
                                                             </span>
-                                                          ),
+                                                          )
                                                         )}
                                                       </div>
                                                     </div>
-                                                  ),
+                                                  )
                                                 )}
                                               </div>
                                               <DialogFooter>
@@ -618,7 +615,7 @@ export default function CafeteriaPage({ cafeterias }: CafeteriaPageProps) {
                                     </div>
 
                                     {location.menus.filter(
-                                      (menu) => menu.menuType === mealType,
+                                      (menu) => menu.menuType === mealType
                                     ).length === 0 && (
                                       <div className="text-center py-12 bg-white/50 backdrop-blur-sm rounded-xl">
                                         <p className="text-orange-800">

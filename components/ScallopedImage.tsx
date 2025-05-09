@@ -1,55 +1,90 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import { useId, useRef, useEffect, useState } from "react"
+import { cn } from "@/lib/utils";
+import { useId, useRef, useEffect, useState } from "react";
 
 interface ScallopedImageProps {
-  imageSrc: string
-  className?: string
-  height?: number
+  imageSrc: string;
+  className?: string;
+  height?: number;
+  parallaxStrength?: number;
 }
 
-export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedImageProps) {
-  // Generate a stable ID for the clip-path
-  const clipPathId = useId()
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(0)
+export function ScallopedImage({
+  imageSrc,
+  className,
+  height = 300,
+  parallaxStrength = 0.2,
+}: ScallopedImageProps) {
+  const clipPathId = useId();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Update container width on mount and resize
   useEffect(() => {
-    const updateWidth = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth)
-      }
-    }
+    setIsMounted(true);
 
-    // Initial measurement
-    updateWidth()
+    const handleParallax = () => {
+      if (!containerRef.current) return;
 
-    // Set up resize listener
-    window.addEventListener("resize", updateWidth)
+      const rect = containerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      const viewportPosition =
+        (rect.top + rect.height / 2 - viewportHeight / 2) /
+        (viewportHeight / 2);
+
+      // Calculate parallax offset based on viewportPosition
+      const offset = viewportPosition * parallaxStrength * 100;
+      setParallaxOffset(offset);
+    };
+
+    // Add scroll and resize event listeners
+    window.addEventListener("scroll", handleParallax, { passive: true });
+    window.addEventListener("resize", handleParallax, { passive: true });
+
+    // Initial calculation
+    handleParallax();
 
     return () => {
-      window.removeEventListener("resize", updateWidth)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleParallax);
+      window.removeEventListener("resize", handleParallax);
+    };
+  }, [parallaxStrength]);
+
+  // Return a simplified version during server rendering
+  if (!isMounted) {
+    return (
+      <div
+        className={cn("relative w-full overflow-hidden", className)}
+        style={{ height: `${height}px` }}
+      >
+        <div className="w-full h-full bg-gradient-to-br from-white to-gray-100"></div>
+      </div>
+    );
+  }
 
   return (
-    <div ref={containerRef} className={cn("relative w-full overflow-hidden", className)}>
-      {/* Scalloped container with outline */}
+    <div
+      ref={containerRef}
+      className={cn("relative w-full overflow-hidden", className)}
+    >
       <div
         className="w-full overflow-hidden bg-gradient-to-br from-white to-gray-100 shadow-xl"
         style={{
           clipPath: `url(#${clipPathId})`,
+          height: `${height}px`,
         }}
       >
         <img
           src={imageSrc || "/placeholder.svg"}
           alt="Student life"
-          className="w-full object-cover block"
+          className="w-full object-cover block transition-transform duration-300 ease-out"
           style={{
-            height: `${height}px`,
-            objectPosition: "center 25%",
+            height: `${height + Math.abs(parallaxStrength * 100)}px`,
+            objectPosition: "center 30%",
+            transform: `translateY(${parallaxOffset - 20}px)`,
+            willChange: "transform",
           }}
         />
 
@@ -83,5 +118,5 @@ export function ScallopedImage({ imageSrc, className, height = 300 }: ScallopedI
         </svg>
       </div>
     </div>
-  )
+  );
 }

@@ -18,7 +18,7 @@ const JOB_POSTS = [
     posted: "2 days ago",
     deadline: "Application closes May 10",
     type: "Part-time",
-    image: "/job1.jpg"
+    image: "/job1.jpg",
   },
   {
     id: "j2",
@@ -29,7 +29,7 @@ const JOB_POSTS = [
     posted: "1 week ago",
     deadline: "Open until filled",
     type: "Part-time",
-    image: "/job2.jpg"
+    image: "/job2.jpg",
   },
   {
     id: "j3",
@@ -37,10 +37,10 @@ const JOB_POSTS = [
     company: "University Admissions",
     location: "Various Campus Locations",
     salary: "$15-17/hr",
-    posted: "3 days ago", 
+    posted: "3 days ago",
     deadline: "Applications due May 15",
     type: "Flexible hours",
-    image: "/job3.jpg"
+    image: "/job3.jpg",
   },
   {
     id: "j4",
@@ -51,7 +51,7 @@ const JOB_POSTS = [
     posted: "Just now",
     deadline: "Hiring immediately",
     type: "Part-time",
-    image: "/job4.jpg"
+    image: "/job4.jpg",
   },
   {
     id: "j5",
@@ -62,7 +62,7 @@ const JOB_POSTS = [
     posted: "5 days ago",
     deadline: "Interview process starting soon",
     type: "Internship",
-    image: "/job5.jpg"
+    image: "/job5.jpg",
   },
   {
     id: "j6",
@@ -73,8 +73,8 @@ const JOB_POSTS = [
     posted: "1 day ago",
     deadline: "Positions filling quickly",
     type: "Part-time",
-    image: "/job6.jpg"
-  }
+    image: "/job6.jpg",
+  },
 ];
 
 const MARKETPLACE_POSTS = [
@@ -86,7 +86,7 @@ const MARKETPLACE_POSTS = [
     seller: "Alex J.",
     location: "North Dorms",
     posted: "Just now",
-    image: "/marketplace1.jpg"
+    image: "/marketplace1.jpg",
   },
   {
     id: "m2",
@@ -96,7 +96,7 @@ const MARKETPLACE_POSTS = [
     seller: "Taylor S.",
     location: "West Campus Apts",
     posted: "2 hours ago",
-    image: "/marketplace2.jpg"
+    image: "/marketplace2.jpg",
   },
   {
     id: "m3",
@@ -106,7 +106,7 @@ const MARKETPLACE_POSTS = [
     seller: "Jamie L.",
     location: "South Dorms",
     posted: "Yesterday",
-    image: "/marketplace3.jpg"
+    image: "/marketplace3.jpg",
   },
   {
     id: "m4",
@@ -116,7 +116,7 @@ const MARKETPLACE_POSTS = [
     seller: "Casey M.",
     location: "Library Area",
     posted: "3 days ago",
-    image: "/marketplace4.jpg"
+    image: "/marketplace4.jpg",
   },
   {
     id: "m5",
@@ -126,7 +126,7 @@ const MARKETPLACE_POSTS = [
     seller: "Jordan P.",
     location: "East Campus",
     posted: "5 days ago",
-    image: "/marketplace5.jpg"
+    image: "/marketplace5.jpg",
   },
   {
     id: "m6",
@@ -136,8 +136,8 @@ const MARKETPLACE_POSTS = [
     seller: "Riley T.",
     location: "Student Center",
     posted: "1 week ago",
-    image: "/marketplace6.jpg"
-  }
+    image: "/marketplace6.jpg",
+  },
 ];
 
 const EVENT_POSTS = [
@@ -150,7 +150,7 @@ const EVENT_POSTS = [
     organizer: "Student Activities Board",
     attendees: 124,
     category: "Entertainment",
-    image: "/event1.jpg"
+    image: "/event1.jpg",
   },
   {
     id: "e2",
@@ -161,7 +161,7 @@ const EVENT_POSTS = [
     organizer: "Career Center",
     attendees: 285,
     category: "Career",
-    image: "/event2.jpg"
+    image: "/event2.jpg",
   },
   {
     id: "e3",
@@ -172,7 +172,7 @@ const EVENT_POSTS = [
     organizer: "Student Government",
     attendees: 210,
     category: "Social",
-    image: "/event3.jpg"
+    image: "/event3.jpg",
   },
   {
     id: "e4",
@@ -183,7 +183,7 @@ const EVENT_POSTS = [
     organizer: "Campus Health Services",
     attendees: 45,
     category: "Health",
-    image: "/event4.jpg"
+    image: "/event4.jpg",
   },
   {
     id: "e5",
@@ -194,7 +194,7 @@ const EVENT_POSTS = [
     organizer: "International Student Association",
     attendees: 350,
     category: "Cultural",
-    image: "/event5.jpg"
+    image: "/event5.jpg",
   },
   {
     id: "e6",
@@ -205,15 +205,15 @@ const EVENT_POSTS = [
     organizer: "Academic Success Center",
     attendees: 78,
     category: "Academic",
-    image: "/event6.jpg"
-  }
+    image: "/event6.jpg",
+  },
 ];
 
 export default function PostsPage() {
   const [mounted, setMounted] = useState(false);
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -225,7 +225,7 @@ export default function PostsPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-1 pt-24">
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-start gap-8">
@@ -233,74 +233,74 @@ export default function PostsPage() {
             <div className="w-full md:w-1/4 bg-white rounded-xl shadow-sm p-6 sticky top-24">
               <h2 className="text-xl font-bold mb-4">Campus Marketplace</h2>
               <div className="mb-6">
-                <Input 
-                  type="search" 
-                  placeholder="Search postings..." 
-                  className="rounded-full" 
+                <Input
+                  type="search"
+                  placeholder="Search postings..."
+                  className="rounded-full"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              
+
               <div className="space-y-2">
-                <button 
+                <button
                   onClick={() => setActiveCategory("all")}
                   className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "all" ? "bg-black text-white" : "hover:bg-gray-100"}`}
                 >
                   All Categories
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveCategory("jobs")}
                   className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "jobs" ? "bg-black text-white" : "hover:bg-gray-100"}`}
                 >
                   Jobs
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveCategory("marketplace")}
                   className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "marketplace" ? "bg-black text-white" : "hover:bg-gray-100"}`}
                 >
                   Marketplace
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveCategory("events")}
                   className={`w-full text-left px-4 py-2 rounded-lg font-medium ${activeCategory === "events" ? "bg-black text-white" : "hover:bg-gray-100"}`}
                 >
                   Events
                 </button>
               </div>
-              
+
               <div className="mt-10">
                 <Button className="w-full rounded-full bg-black hover:bg-black/80">
                   Create New Posting
                 </Button>
               </div>
             </div>
-            
+
             {/* Main Content */}
             <div className="w-full md:w-3/4">
               <Tabs defaultValue="all" className="w-full">
                 <TabsList className="mb-6 bg-transparent w-full flex justify-between border-b">
                   <div className="flex space-x-6">
-                    <TabsTrigger 
-                      value="all" 
+                    <TabsTrigger
+                      value="all"
                       className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
                     >
                       All Postings
                     </TabsTrigger>
-                    <TabsTrigger 
-                      value="jobs" 
+                    <TabsTrigger
+                      value="jobs"
                       className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
                     >
                       Jobs
                     </TabsTrigger>
-                    <TabsTrigger 
-                      value="marketplace" 
+                    <TabsTrigger
+                      value="marketplace"
                       className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
                     >
                       Marketplace
                     </TabsTrigger>
-                    <TabsTrigger 
-                      value="events" 
+                    <TabsTrigger
+                      value="events"
                       className="px-1 py-2 text-lg font-medium data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none"
                     >
                       Events
@@ -314,22 +314,29 @@ export default function PostsPage() {
                     </select>
                   </div>
                 </TabsList>
-                
+
                 {/* All Postings Tab */}
                 <TabsContent value="all" className="mt-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Jobs */}
-                    {JOB_POSTS.slice(0, 2).map(job => (
-                      <Card key={job.id} className="overflow-hidden hover:shadow-lg transition-all">
+                    {JOB_POSTS.slice(0, 2).map((job) => (
+                      <Card
+                        key={job.id}
+                        className="overflow-hidden hover:shadow-lg transition-all"
+                      >
                         <div className="bg-blue-50 p-3 border-b flex justify-between items-center">
                           <div className="bg-blue-100 text-blue-800 font-medium text-xs px-2 py-1 rounded-full">
                             JOB
                           </div>
-                          <span className="text-xs text-gray-500">{job.posted}</span>
+                          <span className="text-xs text-gray-500">
+                            {job.posted}
+                          </span>
                         </div>
                         <div className="p-4">
                           <h3 className="font-bold text-lg">{job.title}</h3>
-                          <p className="text-gray-600 text-sm mb-2">{job.company}</p>
+                          <p className="text-gray-600 text-sm mb-2">
+                            {job.company}
+                          </p>
                           <div className="flex items-center text-sm text-gray-500 mb-3">
                             <span className="mr-3">📍 {job.location}</span>
                             <span>💰 {job.salary}</span>
@@ -338,17 +345,24 @@ export default function PostsPage() {
                             <span className="text-xs bg-blue-50 text-blue-800 px-2 py-1 rounded-full">
                               {job.type}
                             </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="rounded-full hover:bg-black hover:text-white"
+                            >
                               Apply Now
                             </Button>
                           </div>
                         </div>
                       </Card>
                     ))}
-                    
+
                     {/* Marketplace */}
-                    {MARKETPLACE_POSTS.slice(0, 2).map(item => (
-                      <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-all">
+                    {MARKETPLACE_POSTS.slice(0, 2).map((item) => (
+                      <Card
+                        key={item.id}
+                        className="overflow-hidden hover:shadow-lg transition-all"
+                      >
                         <div className="relative h-40">
                           <div className="absolute top-3 left-3 bg-green-100 text-green-800 font-medium text-xs px-2 py-1 rounded-full">
                             MARKETPLACE
@@ -362,24 +376,35 @@ export default function PostsPage() {
                         </div>
                         <div className="p-4">
                           <h3 className="font-bold text-lg">{item.title}</h3>
-                          <p className="text-sm text-gray-600 mb-2">Condition: {item.condition}</p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            Condition: {item.condition}
+                          </p>
                           <div className="flex items-center text-sm text-gray-500">
                             <span className="mr-3">👤 {item.seller}</span>
                             <span>📍 {item.location}</span>
                           </div>
                           <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs text-gray-500">{item.posted}</span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
+                            <span className="text-xs text-gray-500">
+                              {item.posted}
+                            </span>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="rounded-full hover:bg-black hover:text-white"
+                            >
                               Message Seller
                             </Button>
                           </div>
                         </div>
                       </Card>
                     ))}
-                    
+
                     {/* Events */}
-                    {EVENT_POSTS.slice(0, 2).map(event => (
-                      <Card key={event.id} className="overflow-hidden hover:shadow-lg transition-all">
+                    {EVENT_POSTS.slice(0, 2).map((event) => (
+                      <Card
+                        key={event.id}
+                        className="overflow-hidden hover:shadow-lg transition-all"
+                      >
                         <div className="bg-purple-50 p-3 border-b flex justify-between items-center">
                           <div className="bg-purple-100 text-purple-800 font-medium text-xs px-2 py-1 rounded-full">
                             EVENT
@@ -394,13 +419,21 @@ export default function PostsPage() {
                             <span className="mr-3">📅 {event.date}</span>
                             <span>⏰ {event.time}</span>
                           </div>
-                          <p className="text-sm text-gray-600 mb-2">📍 {event.location}</p>
-                          <p className="text-xs text-gray-500">By {event.organizer}</p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            📍 {event.location}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            By {event.organizer}
+                          </p>
                           <div className="flex justify-between items-center mt-4">
                             <span className="text-xs bg-purple-50 text-purple-800 px-2 py-1 rounded-full">
                               {event.attendees} attending
                             </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="rounded-full hover:bg-black hover:text-white"
+                            >
                               I'm Interested
                             </Button>
                           </div>
@@ -409,31 +442,44 @@ export default function PostsPage() {
                     ))}
                   </div>
                 </TabsContent>
-                
+
                 {/* Jobs Tab */}
                 <TabsContent value="jobs" className="mt-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {JOB_POSTS.map(job => (
-                      <Card key={job.id} className="overflow-hidden hover:shadow-lg transition-all">
+                    {JOB_POSTS.map((job) => (
+                      <Card
+                        key={job.id}
+                        className="overflow-hidden hover:shadow-lg transition-all"
+                      >
                         <div className="bg-blue-50 p-3 border-b flex justify-between items-center">
                           <div className="bg-blue-100 text-blue-800 font-medium text-xs px-2 py-1 rounded-full">
                             JOB
                           </div>
-                          <span className="text-xs text-gray-500">{job.posted}</span>
+                          <span className="text-xs text-gray-500">
+                            {job.posted}
+                          </span>
                         </div>
                         <div className="p-4">
                           <h3 className="font-bold text-lg">{job.title}</h3>
-                          <p className="text-gray-600 text-sm mb-2">{job.company}</p>
+                          <p className="text-gray-600 text-sm mb-2">
+                            {job.company}
+                          </p>
                           <div className="flex items-center text-sm text-gray-500 mb-3">
                             <span className="mr-3">📍 {job.location}</span>
                             <span>💰 {job.salary}</span>
                           </div>
-                          <p className="text-xs text-gray-500 mb-3">{job.deadline}</p>
+                          <p className="text-xs text-gray-500 mb-3">
+                            {job.deadline}
+                          </p>
                           <div className="flex justify-between items-center mt-4">
                             <span className="text-xs bg-blue-50 text-blue-800 px-2 py-1 rounded-full">
                               {job.type}
                             </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="rounded-full hover:bg-black hover:text-white"
+                            >
                               Apply Now
                             </Button>
                           </div>
@@ -442,12 +488,15 @@ export default function PostsPage() {
                     ))}
                   </div>
                 </TabsContent>
-                
+
                 {/* Marketplace Tab */}
                 <TabsContent value="marketplace" className="mt-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {MARKETPLACE_POSTS.map(item => (
-                      <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-all">
+                    {MARKETPLACE_POSTS.map((item) => (
+                      <Card
+                        key={item.id}
+                        className="overflow-hidden hover:shadow-lg transition-all"
+                      >
                         <div className="relative h-40">
                           <div className="absolute top-3 left-3 bg-green-100 text-green-800 font-medium text-xs px-2 py-1 rounded-full">
                             MARKETPLACE
@@ -461,14 +510,22 @@ export default function PostsPage() {
                         </div>
                         <div className="p-4">
                           <h3 className="font-bold text-lg">{item.title}</h3>
-                          <p className="text-sm text-gray-600 mb-2">Condition: {item.condition}</p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            Condition: {item.condition}
+                          </p>
                           <div className="flex items-center text-sm text-gray-500">
                             <span className="mr-3">👤 {item.seller}</span>
                             <span>📍 {item.location}</span>
                           </div>
                           <div className="flex justify-between items-center mt-4">
-                            <span className="text-xs text-gray-500">{item.posted}</span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
+                            <span className="text-xs text-gray-500">
+                              {item.posted}
+                            </span>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="rounded-full hover:bg-black hover:text-white"
+                            >
                               Message Seller
                             </Button>
                           </div>
@@ -477,12 +534,15 @@ export default function PostsPage() {
                     ))}
                   </div>
                 </TabsContent>
-                
+
                 {/* Events Tab */}
                 <TabsContent value="events" className="mt-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {EVENT_POSTS.map(event => (
-                      <Card key={event.id} className="overflow-hidden hover:shadow-lg transition-all">
+                    {EVENT_POSTS.map((event) => (
+                      <Card
+                        key={event.id}
+                        className="overflow-hidden hover:shadow-lg transition-all"
+                      >
                         <div className="bg-purple-50 p-3 border-b flex justify-between items-center">
                           <div className="bg-purple-100 text-purple-800 font-medium text-xs px-2 py-1 rounded-full">
                             EVENT
@@ -497,13 +557,21 @@ export default function PostsPage() {
                             <span className="mr-3">📅 {event.date}</span>
                             <span>⏰ {event.time}</span>
                           </div>
-                          <p className="text-sm text-gray-600 mb-2">📍 {event.location}</p>
-                          <p className="text-xs text-gray-500">By {event.organizer}</p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            📍 {event.location}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            By {event.organizer}
+                          </p>
                           <div className="flex justify-between items-center mt-4">
                             <span className="text-xs bg-purple-50 text-purple-800 px-2 py-1 rounded-full">
                               {event.attendees} attending
                             </span>
-                            <Button size="sm" variant="outline" className="rounded-full hover:bg-black hover:text-white">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="rounded-full hover:bg-black hover:text-white"
+                            >
                               I'm Interested
                             </Button>
                           </div>
@@ -519,4 +587,4 @@ export default function PostsPage() {
       </main>
     </div>
   );
-} 
+}

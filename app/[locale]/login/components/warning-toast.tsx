@@ -23,6 +23,6 @@ export function warningToast({ title, description }: WarningToastProps) {
     ),
     {
       duration: 5000,
-    }
+    },
   );
 }

@@ -29,7 +29,7 @@ export default async function page({
       headers: {
         Authorization: `Bearer ${session.user.accessToken}`,
       },
-    }
+    },
   );
 
   if (!cafeteriaRes.ok) {
@@ -49,11 +49,11 @@ export default async function page({
         headers: {
           Authorization: `Bearer ${session.user.accessToken}`,
         },
-      }
+      },
     );
     if (!cafeteriaMenuRes.ok) {
       throw new Error(
-        `Failed to fetch cafeteria menu: ${cafeteriaMenuRes.status}`
+        `Failed to fetch cafeteria menu: ${cafeteriaMenuRes.status}`,
       );
     }
     const cafeteriaMenu = await cafeteriaMenuRes.json();
